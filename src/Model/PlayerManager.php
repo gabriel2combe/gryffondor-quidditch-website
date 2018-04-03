@@ -12,9 +12,9 @@ namespace Model;
 /**
  *
  */
-class JoueurManager extends AbstractManager
+class PlayerManager extends AbstractManager
 {
-    const TABLE = 'joueur';
+    const TABLE = 'player';
 
     /**
      *  Initializes this class.
@@ -23,4 +23,6 @@ class JoueurManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
+
+
 }

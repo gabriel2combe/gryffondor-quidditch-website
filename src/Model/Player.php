@@ -10,14 +10,14 @@
 namespace Model;
 
 /**
- * Class Joueur
+ * Class Player
  *
  */
-class Joueur
+class Player
 {
     private $id;
 
-    private $nom;
+    private $lastName;
 
     /**
      * @return int
@@ -32,7 +32,7 @@ class Joueur
      *
      * @return Item
      */
-    public function setId($id): Joueur
+    public function setId($id): Player
     {
         $this->id = $id;
 
@@ -42,19 +42,19 @@ class Joueur
     /**
      * @return mixed
      */
-    public function getNom(): string
+    public function getLastName(): string
     {
-        return $this->nom;
+        return $this->lastName;
     }
 
     /**
-     * @param mixed $nom
+     * @param mixed $name
      *
-     * @return Item
+     * @return Player
      */
-    public function setNom($nom): Joueur
+    public function setLastName($lastName): Player
     {
-        $this->nom = $nom;
+        $this->lastName = $lastName;
 
         return $this;
     }

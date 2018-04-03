@@ -10,10 +10,10 @@
  */
 
 $routes = [
-    'Joueur' => [ // Controller
+    'Player' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['add', '/joueur/add', 'GET'], // action, url, method
-        ['edit', '/joueur/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/joueur/{id:\d+}', 'GET'], // action, url, method
+        ['add', '/player/add', 'GET'], // action, url, method
+        ['edit', '/player/edit/{id:\d+}', 'GET'], // action, url, method
+        ['show', '/player/{id:\d+}', 'GET'], // action, url, method
     ],
 ];

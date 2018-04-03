@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Composition de l'équipe{% endblock %}
+
+{% block content %}
+    <h1>Joueurs</h1>
+    <ul>
+        {% for player in players %}
+            <li><a href="/players/{{ player.id }}">{{ player.id }} . {{ player.lastName }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
