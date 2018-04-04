@@ -18,6 +18,10 @@ class Player
     private $id;
 
     private $lastName;
+    private $firstName;
+    private $size;
+    private $birthDate;
+
 
     /**
      * @return int
@@ -48,7 +52,7 @@ class Player
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $lastName
      *
      * @return Player
      */
@@ -58,4 +62,60 @@ class Player
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param mixed $firstName
+     *
+     * @return Player
+     */
+    public function setFirstName($firstName): Player
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param mixed $size
+     *
+     * @return Player
+     */
+    public function setSize($size): Player
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     *
+     *
+     * @return Player
+     */
+    public function getAge(): int
+    {
+        $age = date('Y') - date('Y', strtotime($this->birthDate));
+        if (date('md') < date('md', strtotime($this->birthDate))){
+            return $age - 1;
+        }else{
+            return $age;
+        }
+    }
+
 }

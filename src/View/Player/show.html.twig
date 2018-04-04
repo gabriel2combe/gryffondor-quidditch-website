@@ -1,8 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Item {{ player.title }}</h1>
-    <p>{{ player.id }}. {{ player.title }}</p>
+    <h1>Item {{ player.lastName }}</h1>
+    <p>{{ player.id }}. {{ player.lastName }}</p>
     <a href="/player/edit/{{ player.id }}">Edit</a>
     <a href="/">Back</a>
 {% endblock %}

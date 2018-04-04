@@ -3,12 +3,88 @@
 {% block title %}Composition de l'équipe{% endblock %}
 
 {% block content %}
-    <h1>Joueurs</h1>
-    <ul>
-        {% for player in players %}
-            <li><a href="/players/{{ player.id }}">{{ player.id }} . {{ player.lastName }}</a></li>
+
+<div class="container-fluid">
+
+    <div class="row d-flex justify-content-around">
+        <h1>Composition de l'équipe</h1>
+    </div>
+
+    <h2>Gardien</h2>
+    <div class="row d-flex justify-content-around">
+        {% for gardien in gardiens %}
+            <div class="card" style="width: 200px;">
+              <img class="card-img-top" style="width: 200px; height: 250px;" src="http://via.placeholder.com/200x250" alt="Photo de {{ gardien.lastName }} {{ gardien.firstName }}">
+              <div class="card-body">
+                <p class="card-text">
+                  {{ gardien.lastName }}<br/>
+                  {{ gardien.firstName }}<br/>
+                  {{ gardien.size }} cm<br/>
+                  {{ gardien.getAge }} ans<br/>
+                </p>
+              </div>
+            </div>
         {% else %}
-            <li>Nothing to display</li>
+            <p>Nothing to display</p>
         {% endfor %}
-    </ul>
+    </div>
+
+    <h2>Poursuiveurs</h2>
+    <div class="row d-flex justify-content-around">
+        {% for poursuiveur in poursuiveurs %}
+            <div class="card" style="width: 200px;">
+              <img class="card-img-top" style="width: 200px; height: 250px;" src="http://via.placeholder.com/200x250" alt="Photo de {{ poursuiveur.lastName }} {{ poursuiveur.firstName }}">
+              <div class="card-body">
+                <p class="card-text">
+                  {{ poursuiveur.lastName }}<br/>
+                  {{ poursuiveur.firstName }}<br/>
+                  {{ poursuiveur.size }} cm<br/>
+                  {{ poursuiveur.getAge }} ans<br/>
+                </p>
+              </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+
+    <h2>Batteurs</h2>
+    <div class="row d-flex justify-content-around">
+        {% for batteur in batteurs %}
+            <div class="card" style="width: 200px;">
+              <img class="card-img-top" style="width: 200px; height: 250px;" src="http://via.placeholder.com/200x250" alt="Photo de {{ batteur.lastName }} {{ batteur.firstName }}">
+              <div class="card-body">
+                <p class="card-text">
+                  {{ batteur.lastName }}<br/>
+                  {{ batteur.firstName }}<br/>
+                  {{ batteur.size }} cm<br/>
+                  {{ batteur.getAge }} ans<br/>
+                </p>
+              </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+
+    <h2>Attrapeur</h2>
+    <div class="row d-flex justify-content-around">
+        {% for attrapeur in attrapeurs %}
+            <div class="card" style="width: 200px;">
+              <img class="card-img-top" style="width: 200px; height: 250px;" src="http://via.placeholder.com/200x250" alt="Photo de {{ attrapeur.lastName }} {{ attrapeur.firstName }}">
+              <div class="card-body">
+                <p class="card-text">
+                  {{ attrapeur.lastName }}<br/>
+                  {{ attrapeur.firstName }}<br/>
+                  {{ attrapeur.size }} cm<br/>
+                  {{ attrapeur.getAge }} ans<br/>
+                </p>
+              </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

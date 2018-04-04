@@ -28,8 +28,18 @@ class PlayerController extends AbstractController
     {
         $playerManager = new PlayerManager();
         $players = $playerManager->selectAll();
+        $gardiens = $playerManager->selectByPosition(3);
+        $attrapeurs = $playerManager->selectByPosition(4);
+        $poursuiveurs = $playerManager->selectByPosition(1);
+        $batteurs = $playerManager->selectByPosition(2);
 
-        return $this->twig->render('Player/index.html.twig', ['players' => $players]);
+        return $this->twig->render('Player/index.html.twig', [
+            'players' => $players,
+            'gardiens' => $gardiens,
+            'attrapeurs' => $attrapeurs,
+            'poursuiveurs' => $poursuiveurs,
+            'batteurs' => $batteurs
+        ]);
     }
 
     /**
