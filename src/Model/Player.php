@@ -21,6 +21,7 @@ class Player
     private $firstName;
     private $size;
     private $birthDate;
+    private $picture;
 
 
     /**
@@ -32,11 +33,11 @@ class Player
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      *
      * @return Item
      */
-    public function setId($id): Player
+    public function setId(int $id): Player
     {
         $this->id = $id;
 
@@ -44,7 +45,7 @@ class Player
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLastName(): string
     {
@@ -52,11 +53,11 @@ class Player
     }
 
     /**
-     * @param mixed $lastName
+     * @param string $lastName
      *
      * @return Player
      */
-    public function setLastName($lastName): Player
+    public function setLastName(string $lastName): Player
     {
         $this->lastName = $lastName;
 
@@ -64,7 +65,7 @@ class Player
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFirstName(): string
     {
@@ -72,11 +73,11 @@ class Player
     }
 
     /**
-     * @param mixed $firstName
+     * @param string $firstName
      *
      * @return Player
      */
-    public function setFirstName($firstName): Player
+    public function setFirstName(string $firstName): Player
     {
         $this->firstName = $firstName;
 
@@ -84,7 +85,7 @@ class Player
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSize(): int
     {
@@ -92,11 +93,11 @@ class Player
     }
 
     /**
-     * @param mixed $size
+     * @param int $size
      *
      * @return Player
      */
-    public function setSize($size): Player
+    public function setSize(int $size): Player
     {
         $this->size = $size;
 
@@ -104,9 +105,31 @@ class Player
     }
 
     /**
-     *
+     * @return string
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
      *
      * @return Player
+     */
+    public function setPicture(string $picture): Player
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+
+
+    /**
+     *
+     *
+     * @return int
      */
     public function getAge(): int
     {
