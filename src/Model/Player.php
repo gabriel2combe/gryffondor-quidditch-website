@@ -22,6 +22,8 @@ class Player
     private $size;
     private $birthDate;
     private $picture;
+    private $broomstickModel;
+    private $broomstickSpeed;
 
 
     /**
@@ -120,6 +122,46 @@ class Player
     public function setPicture(string $picture): Player
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBroomstickModel(): string
+    {
+        return $this->broomstickModel;
+    }
+
+    /**
+     * @param string $broomstickModel
+     *
+     * @return Player
+     */
+    public function setBroomstickModel(string $broomstickModel): Player
+    {
+        $this->broomstickModel = $broomstickModel;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBroomstickSpeed(): string
+    {
+        return $this->broomstickSpeed;
+    }
+
+    /**
+     * @param string $broomstickSpeed
+     *
+     * @return Player
+     */
+    public function setBroomstickSpeed(string $broomstickSpeed): Player
+    {
+        $this->broomstickSpeed = $broomstickSpeed;
 
         return $this;
     }

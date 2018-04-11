@@ -34,7 +34,8 @@ class PlayerManager extends AbstractManager
     public function selectByPosition(int $position)
     {
         // prepared request
-        $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE idPosition=:position");
+        $statement = $this->pdoConnection->prepare("SELECT $this->table.*, b.model AS broomstickModel, b.speed AS broomstickSpeed FROM $this->table
+        INNER JOIN broomstick AS b ON b.id = idBroomstick WHERE idPosition=:position");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('position', $position, \PDO::PARAM_INT);
         $statement->execute();
