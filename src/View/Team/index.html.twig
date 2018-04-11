@@ -1,10 +1,10 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Items</h1>
+    <h1>Teams</h1>
     <ul>
-        {% for item in items %}
-            <li><a href="/item/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
+        {% for team in teams %}
+            <li><a href="/team/{{ team.id }}">{{ team.id }}. {{ team.name }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
