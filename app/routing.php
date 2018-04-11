@@ -11,9 +11,6 @@
 
 $routes = [
     'Player' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/player/add', 'GET'], // action, url, method
-        ['edit', '/player/edit/{id:\d+}', 'GET'], // action, url, method
-        ['show', '/player/{id:\d+}', 'GET'], // action, url, method
+        ['index', '/team', 'GET'], // action, url, method
     ],
 ];
