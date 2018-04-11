@@ -9,14 +9,17 @@ body {
 
 h1{
     
-    margin-bottom: 100px;
+    margin-top: 100px;
     font-family: 'Cinzel Decorative', cursive;
     
 }
 
-h2 {
-    
-    margin-bottom: 50px;
-    
-    
+h2 
+{
+    margin-bottom: 5vh;  
+}
+
+.row
+{
+	margin-bottom: 12vh;
 }

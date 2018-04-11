@@ -4,10 +4,16 @@ body
 	background-size: cover;
 }
 
+#btn-burger
+{
+	margin-right: 45%;
+
+}
+
 #social
 {
 	color: white;
-	font-size: 2rem;
+	font-size: 1.95rem;
 }
 
 .ul-home
@@ -49,27 +55,47 @@ body
 }
 
 
-.navbar-light .navbar-nav .nav-link:focus
-{
-	color: #833E2F;
-}
+
 
 @media screen and (max-width: 1024px) 
 {
 
 
-  .ul-home 
-  {
-  	margin: auto;
-  	width: 100%;
-  }
+  	.ul-home 
+  	{
+	  	margin: auto;
+	  	width: 100%;
+  	}
 
 
-  .ul-home > li
+	  .ul-home > li
+	{
+		margin:auto;
+
+	}
+}
+
+@media screen and (max-width: 575px)
 {
-	margin:auto;
-	/*display: flex;
-	flex-direction: row;
-	justify-content: space-around;*/
+	#social
+	{
+		display: none;
+		width: 0%;
+	}
+
+	#btn-burger
+	{
+		margin: auto;
+	}
+
+	#navbarNav
+	{
+		background-color: rgba(255,255,255,0.65);
+	}
+
+	#navbarNav a
+	{
+		color: #833E2F;
+	}
 }
-}
+
