@@ -176,11 +176,10 @@ class Player
     public function getAge(): int
     {
         $age = date('Y') - date('Y', strtotime($this->birthDate));
-        if (date('md') < date('md', strtotime($this->birthDate))){
+        if (date('md') < date('md', strtotime($this->birthDate))) {
             return $age - 1;
-        }else{
+        } else {
             return $age;
         }
     }
-
 }

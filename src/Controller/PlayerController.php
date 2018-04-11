@@ -14,7 +14,6 @@ use Model\PlayerManager;
 
 /**
  * Class PlayerController
- *
  */
 class PlayerController extends AbstractController
 {
@@ -33,19 +32,22 @@ class PlayerController extends AbstractController
         $poursuiveurs = $playerManager->selectByPosition(1);
         $batteurs = $playerManager->selectByPosition(2);
 
-        return $this->twig->render('Player/index.html.twig', [
+        return $this->twig->render(
+            'Player/index.html.twig',
+            [
             'players' => $players,
             'gardiens' => $gardiens,
             'attrapeurs' => $attrapeurs,
             'poursuiveurs' => $poursuiveurs,
             'batteurs' => $batteurs
-        ]);
+            ]
+        );
     }
 
     /**
      * Display player informations specified by $id
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return string
      */
@@ -60,7 +62,7 @@ class PlayerController extends AbstractController
     /**
      * Display player edition page specified by $id
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return string
      */
@@ -84,7 +86,7 @@ class PlayerController extends AbstractController
     /**
      * Display player delete page
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return string
      */
