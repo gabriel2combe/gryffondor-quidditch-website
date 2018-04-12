@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
      <link rel="icon" href="/assets/images/favicon.png">
 
-    {% block stylesheet %}{% endblock %}
+    {% block stylesheet %}<link rel="stylesheet" type="text/css" href="../assets/css/navbar_fix.css">{% endblock %}
 
 </head>
 
 <body>
 
- {% block navbar %}{% endblock %}
+ {% block navbar %}{% include 'navbar/navbar_fix.html.twig'%}{% endblock %}
  {% block content %}{% endblock %}
 
 

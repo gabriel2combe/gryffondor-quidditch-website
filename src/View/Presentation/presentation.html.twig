@@ -1,7 +1,10 @@
 {% extends 'layout.html.twig' %}
 {% block title %}Notre équipe{% endblock %}
-{% block stylesheet %}<link rel="stylesheet" type="text/css" href="../assets/css/presentation.css">{% endblock %}
- {% block navbar %}{% include 'navbar/navbar.html.twig'%} {% endblock %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="../assets/css/presentation.css">
+{% endblock %}
+
 
 {% block content %}
     <div class="container">

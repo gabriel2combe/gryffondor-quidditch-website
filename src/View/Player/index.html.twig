@@ -1,6 +1,10 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}Composition de l'équipe{% endblock %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="../assets/css/player.css">
+{% endblock %}
 
 {% block content %}
 
@@ -9,7 +13,7 @@
     <div class="row d-flex justify-content-around">
         <h1>Composition de l'équipe</h1>
     </div>
-    <div class="row bg-dark">
+    <div class="row bg-dark d-flex justify-content-around">
       <h2 class="ml-3 mb-0 text-white">Gardien</h2>
     </div>
     <div class="row d-flex justify-content-around pt-2 pb-3">
@@ -33,7 +37,7 @@
         {% endfor %}
     </div>
 
-    <div class="row bg-dark">
+    <div class="row bg-dark d-flex justify-content-around">
       <h2 class="ml-3 mb-0 text-white">Poursuiveurs</h2>
     </div>
     <div class="row d-flex justify-content-around pt-2 pb-3">
@@ -57,7 +61,7 @@
         {% endfor %}
     </div>
 
-    <div class="row bg-dark">
+    <div class="row bg-dark d-flex justify-content-around">
       <h2 class="ml-3 mb-0 text-white">Batteurs</h2>
     </div>
     <div class="row d-flex justify-content-around pt-2 pb-3">
@@ -81,7 +85,7 @@
         {% endfor %}
     </div>
 
-    <div class="row bg-dark">
+    <div class="row bg-dark d-flex justify-content-around">
       <h2 class="ml-3 mb-0 text-white">Attrapeur</h2>
     </div>
     <div class="row d-flex justify-content-around pt-2 pb-3">
