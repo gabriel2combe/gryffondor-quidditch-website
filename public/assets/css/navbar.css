@@ -1,0 +1,101 @@
+body
+{
+	background: url('../images/home.png') no-repeat fixed center;
+	background-size: cover;
+}
+
+#btn-burger
+{
+	margin-right: 45%;
+
+}
+
+#social
+{
+	color: white;
+	font-size: 1.95rem;
+}
+
+.ul-home
+{
+	margin-left:35%;
+	width: 60%;
+}
+
+
+
+#navbar a
+{
+	font-family: 'Poiret One', cursive;
+	font-size: 1.4rem;
+	color: white;
+	
+
+}
+
+
+#navbar
+{
+
+	background-color: rgba(1,0,1,0)!important;
+}
+
+.navbar-light .navbar-nav .nav-link
+{
+
+
+	font-family: 'Kanit', sans-serif;
+	color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover
+{
+
+	color: #833E2F;
+}
+
+
+
+
+@media screen and (max-width: 1024px) 
+{
+
+
+  	.ul-home 
+  	{
+	  	margin: auto;
+	  	width: 100%;
+  	}
+
+
+	  .ul-home > li
+	{
+		margin:auto;
+
+	}
+}
+
+@media screen and (max-width: 575px)
+{
+	#social
+	{
+		display: none;
+		width: 0%;
+	}
+
+	#btn-burger
+	{
+		margin: auto;
+	}
+
+	#navbarNav
+	{
+		background-color: rgba(255,255,255,0.65);
+	}
+
+	#navbarNav a
+	{
+		color: #833E2F;
+	}
+}
+

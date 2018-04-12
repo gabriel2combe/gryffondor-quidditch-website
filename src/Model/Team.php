@@ -10,14 +10,14 @@
 namespace Model;
 
 /**
- * Class Item
+ * Class Team
  *
  */
-class Item
+class Team
 {
     private $id;
 
-    private $title;
+    private $name;
 
     /**
      * @return int
@@ -30,9 +30,9 @@ class Item
     /**
      * @param mixed $id
      *
-     * @return Item
+     * @return Team
      */
-    public function setId($id): Item
+    public function setId($id): Team
     {
         $this->id = $id;
 
@@ -42,19 +42,19 @@ class Item
     /**
      * @return mixed
      */
-    public function getTitle(): string
+    public function getName(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**
-     * @param mixed $title
+     * @param mixed $name
      *
-     * @return Item
+     * @return Team
      */
-    public function setTitle($title):Item
+    public function setName($name):Team
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }

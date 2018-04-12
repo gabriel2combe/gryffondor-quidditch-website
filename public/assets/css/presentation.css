@@ -1,0 +1,25 @@
+body {
+    
+    background-color: #EFF6F7;
+    font-family: 'Poiret One', cursive;
+    font-size: 21px;
+}
+
+
+
+h1{
+    
+    margin-top: 100px;
+    font-family: 'Cinzel Decorative', cursive;
+    
+}
+
+h2 
+{
+    margin-bottom: 5vh;  
+}
+
+.row
+{
+	margin-bottom: 12vh;
+}
