@@ -1,0 +1,12 @@
+/*********************************************************
+This CSS is applied to the whole site (layout.html.twig)
+*********************************************************/
+
+body {
+    background-color: #EFF6F7;
+    font-family: 'Poiret One', cursive;
+}
+
+h1{
+    font-family: 'Cinzel Decorative', cursive;
+}
