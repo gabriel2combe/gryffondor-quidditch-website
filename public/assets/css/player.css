@@ -1,5 +1,5 @@
 body {
-    font-size: 1rem;
+    font-size: 20px;
 }
 
 h1{
@@ -10,38 +10,63 @@ h2
 {
     font-family: 'Cinzel Decorative', cursive;
     margin-bottom: 5vh;
+    color: yellow;
 }
 
 .row
 {
-  margin-bottom: 8vh;
+    margin-bottom: 8vh;
 }
 
-.card
+.position-bar
 {
-  border-radius: 10px;
-  border: solid 2px rgba(0, 0, 0, 0.5);
-  margin-bottom: 5px;
-  min-width: 360px;
+    background-color: #833E2F;
 }
 
-.card-img-top
+/*******************************************************/
+/*           Hoverable/clickable cards                 */
+/*******************************************************/
+
+.custom-card
 {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  width: 180px;
-  height: 225px;
+    position: relative;
+    width: 280px;
+    height: 350px;
 }
 
-.card-body
+.custom-card-img
 {
-  width: 180px;
-  height: 225px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 280px;
+    height: 350px;
+    position: absolute;
 }
+
+.custom-card-text
+{
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0, 0.6);
+    color: white;
+    text-align: center;
+    transition: height 1s, padding-top 1s;
+}
+
+.custom-card:hover .custom-card-text, .clicked .custom-card-text
+{
+    height: 100%;
+    padding-top: 30px;
+}
+
+/*****************************************************/
 
 @media (hover: hover)
 {
-  .card-hover
+  .card
   {
     display: none!important;
   }
