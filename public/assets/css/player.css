@@ -1,6 +1,8 @@
 body {
     font-size: 20px;
-    background-color: #562b2b;
+    /*background-color: #562b2b;*/
+    background: url("../images/teams/team_wallpaper.jpg") no-repeat fixed center;
+    background-size: cover;
 }
 
 h1{
@@ -41,11 +43,15 @@ h2:before, h2:after {
 
 .position-bar
 {
-    /*background-color: #833E2F;*/
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: yellow solid 2px;
     border-bottom: yellow solid 2px;
+}
+
+.position-bar:not(:first-of-type)
+{
+    margin-top: 125px;
 }
 
 /*******************************************************/
