@@ -1,6 +1,6 @@
 body {
     font-size: 20px;
-    background-color: darkgray;
+    background-color: #562b2b;
 }
 
 h1{
@@ -13,6 +13,25 @@ h2
     font-family: 'Cinzel Decorative', cursive;
     margin-bottom: 5vh;
     color: yellow;
+    vertical-align: center;
+}
+
+h2:before {
+    content: '';
+    background:url('../images/vif_jaune.png');
+}
+
+h2:after {
+    content: '';
+    background:url('../images/vif_jaune_droite.png');
+}
+
+h2:before, h2:after {
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: center;
 }
 
 .row
@@ -22,7 +41,11 @@ h2
 
 .position-bar
 {
-    background-color: #833E2F;
+    /*background-color: #833E2F;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: yellow solid 2px;
+    border-bottom: yellow solid 2px;
 }
 
 /*******************************************************/
