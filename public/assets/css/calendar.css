@@ -1,0 +1,44 @@
+/*style du titre*/
+
+.title_calendar
+{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+/***********placement et styles des vignettes matchs********/
+
+.ligne
+{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #833E2F;
+}
+
+/*style et placement du "VS"*/
+.vs
+{
+    font-weight: bold;
+    color: #EEEEEE;
+    margin: auto;
+}
+
+/*style et placement des scores*/
+.score
+{
+    font-weight: bold;
+    color: #EEEEEE;
+    margin: auto;
+}
