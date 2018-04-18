@@ -1,20 +1,20 @@
 body {
     font-size: 20px;
     /*background-color: #562b2b;*/
-    background: url("../images/teams/team_wallpaper.jpg") no-repeat fixed center;
+    background: url("../images/players/team_wallpaper.jpg") no-repeat fixed center;
     background-size: cover;
 }
 
 h1{
     margin-top: 5vh;
-    color: yellow;
+    color: white;
 }
 
 h2
 {
     font-family: 'Cinzel Decorative', cursive;
     margin-bottom: 5vh;
-    color: yellow;
+    color: white;
     vertical-align: center;
 }
 
@@ -45,8 +45,8 @@ h2:before, h2:after {
 {
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top: yellow solid 2px;
-    border-bottom: yellow solid 2px;
+    /*border-top: white solid 2px;
+    border-bottom: white solid 2px;*/
 }
 
 .position-bar:not(:first-of-type)
@@ -68,8 +68,7 @@ h2:before, h2:after {
 
 .custom-card-img
 {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius: 8px;
     width: 280px;
     height: 350px;
     position: absolute;
@@ -77,6 +76,8 @@ h2:before, h2:after {
 
 .custom-card-text
 {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     overflow: hidden;
     position: absolute;
     bottom: 0;
@@ -93,6 +94,8 @@ body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
     height: 100%;
     padding-top: 30px;
     background-color: rgba(0,0,0, 0.8);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 /*****************************************************/
