@@ -20,26 +20,26 @@
                 <ul id="Contact__informations" class="col-xs-12 col-md-4">
 
                     <li>
-                        <a href="/contact#Contact__map" title="Google map The Market Tavern">
+                        <div>
                             <i class="fas fa-compass fa-2x"></i>
-                            <p>Adresse&nbsp;:</p>
-                            <p>15 rue Rode<br>33 000 Bordeaux</p>
-                        </a>
+                            <p>{{ contactInfo.0.title|nl2br }} :</p>
+                            <p>{{ contactInfo.0.content|nl2br }}</p>
+                        </div>
                     </li>
 
                     <li>
                         <div>
                             <i class="fab fa-earlybirds fa-2x"></i>
-                            <p>Volière Hiboux&nbsp;:</p>
-                            <p>Poudlard<br>Volière de la tour d'astronomie</p>
+                            <p>{{ contactInfo.1.title|nl2br }} :</p>
+                            <p>{{ contactInfo.1.content|nl2br }}</p>
                         </div>
                     </li>
 
                     <li>
                         <div>
                             <i class="fa fa-paper-plane fa-2x"></i>
-                            <p>E-mail&nbsp;:</p>
-                            <p>themarkettavernbdx[a]gmail.com</p>
+                            <p>{{ contactInfo.2.title|nl2br }} :</p>
+                            <p>{{ contactInfo.2.content|nl2br }}</p>
                         </div>
                     </li>
                 </ul>

@@ -9,7 +9,7 @@
 
 namespace Controller;
 
-
+use Model\ContactManager;
 /**
  * Class ContactController
  *
@@ -24,7 +24,13 @@ class ContactController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Contact/contact.html.twig');
+        $contactManager = new ContactManager();
+        $contactInfo = $contactManager->selectAll();
+        return $this->twig->render('Contact/contact.html.twig',
+            [
+                'contactInfo' => $contactInfo
+            ]
+        );
     }
 
 }

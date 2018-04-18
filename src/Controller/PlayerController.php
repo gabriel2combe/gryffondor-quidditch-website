@@ -9,7 +9,6 @@
 
 namespace Controller;
 
-use Model\Player;
 use Model\PlayerManager;
 
 /**
