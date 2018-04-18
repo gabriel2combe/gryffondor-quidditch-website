@@ -1,6 +1,6 @@
-body {
-    font-size: 20px;
-    background-color: #562b2b;
+body{
+    background: url("../images/logo/lion_vif.png") fixed center no-repeat #DBD5D4;
+    background-size: 35vw;
 }
 
 h1{

@@ -1,0 +1,143 @@
+/* CSS for the "contact" section */
+body{
+    background: url("../images/logo/lion_vif.png") fixed center no-repeat #DBD5D4;
+    background-size: 35vw;
+}
+/* section init */
+
+header {
+    margin-bottom: 3em;
+}
+
+/* informations */
+
+.row:first-of-type{
+    margin-top: 30px;
+}
+
+.row:last-of-type{
+    margin-bottom: 30px;
+}
+
+h2{
+    font-family: 'Cinzel Decorative', cursive;
+    color: #D6AE1D;
+    font-size: 2.2rem;
+}
+
+h2 > img{
+    display: none;
+}
+@media (min-width: 991px) {
+    h2 > img{
+        width: 30px;
+    }
+}
+
+ul#Contact__informations {
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    margin-bottom: 70px;
+}
+
+ul#Contact__informations li {
+    list-style: none;
+}
+ul#Contact__informations li:not(:first-child):not(:last-child) {
+    margin: 5rem 0;
+}
+ul#Contact__informations li:first-child {
+    margin-top: 35px;
+}
+
+ul#Contact__informations a {
+    color: black;
+}
+
+ul#Contact__informations a i {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+svg path {
+    fill: #D6AE1D!important;
+}
+
+
+/* form */
+form {
+    padding: 0 3em !important;
+}
+@media (min-width: 991px) {
+    form {
+        padding: 0;
+    }
+}
+
+form label span {
+    color: black;
+    font-weight: bold;
+
+}
+
+form .form--item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+form .form--item input, form .form--item select, form .form--item textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 1rem 1.3rem;
+    height: 5rem;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    border: none;
+    color: #333;
+    background-color: rgba(255,255,255,0.95);
+}
+form .form--item select {
+    background-color: rgba(255,255,255,0.95);
+    background-image: url("data:image/svg+xml;utf8,<svg fill='#858585' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    background-position-y: 15px;
+}
+form .form--item textarea {
+    min-height: 15rem;
+    background-color: rgba(255,255,255,0.95);
+
+}
+
+form .submit_button {
+    background-color: #833E2F;
+    color: white;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s;
+}
+
+/* map */
+#Contact__map {
+    filter: grayscale(50%);
+    display: flex;
+}

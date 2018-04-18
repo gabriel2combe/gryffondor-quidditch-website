@@ -20,4 +20,7 @@ $routes = [
     'Player' => [ // Controller
         ['index', '/team', 'GET'], // action, url, method
     ],
+    'Contact' => [ // Controller
+        ['index', '/contact', 'GET'], // action, url, method
+    ],
 ];
