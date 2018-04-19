@@ -21,7 +21,7 @@ $routes = [
         ['index', '/team', 'GET'], // action, url, method
 
     ],
-    'Calendar' => [ // Controller
+    'Game' => [ // Controller
         ['index2', '/calendar', 'GET'], // action, url, method
     ],
 ];

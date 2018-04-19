@@ -17,30 +17,48 @@
     </br>
     </br>
 
+        {% for id in id %}
+
+            {% for date in date %}
+
+                <div>
+                    <p>{{ game.dateTimeGame }}</p>
+                </div>
+
+             {% endfor %}
     <div class="container-fluid">
       <div class="row ligne">
 
+          {% for team1 in $team1 %}
           <div class="">
-            <a href="#"><img src="http://via.placeholder.com/90x90"></a>
+            <a href="#">{{ team.name }}</a>
           </div>
 
+
+
+           {% for scores1 in score1 %}
           <div class="score">
-              <p>Score</p>
+              <p>{{ game.score1 }}</p>
           </div>
+          {% endfor %}
 
           <div class="vs">
               <p>VS</p>
           </div>
 
-          <div class="score">
-              <p>Score</p>
-          </div>
+          {% for scores2 in score2 %}
+              <div class="score">
+                  <p>{{ game.score2 }}</p>
+              </div>
+          {% endfor %}
 
 
           <div class="">
               <a href="#"><img src="http://via.placeholder.com/90x90"></a>
           </div>
         </div>
+
+        {% endfor %}
 
     </br>
     </br>
