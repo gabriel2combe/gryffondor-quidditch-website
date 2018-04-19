@@ -19,7 +19,7 @@
 -- Current Database: `quidditch`
 --
 
-DROP DATABASE `quidditch`;
+DROP DATABASE IF EXISTS `quidditch`;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `quidditch` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `quidditch`;
@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
-  `content` varchar(255) NOT NULL,
+  `content` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `titre` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -71,7 +71,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` VALUES (1,'Adresse postale (hiboux)','Ecole de sorcellerie de Poudlard, Glenfinnan, Ecosse'),(2,'Téléphone','+44 1397 722235'),(3,'Adresse email','gryffondor@poudlard.uk');
+INSERT INTO `contact` VALUES (1,'Adresse','Ecole de sorcellerie de Poudlard,\r\nGlenfinnan,\r\nEcosse'),(2,'Volière Hiboux','Poudlard\r\nVolière de la tour d\'astronomie'),(3,'e-mail','gryffondor@poudlard.uk');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,6 +229,7 @@ CREATE TABLE `team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `idStadium` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_equipe_id_stade` (`idStadium`),
   CONSTRAINT `FK_team_id_stadium` FOREIGN KEY (`idStadium`) REFERENCES `stadium` (`id`)
@@ -241,7 +242,7 @@ CREATE TABLE `team` (
 
 LOCK TABLES `team` WRITE;
 /*!40000 ALTER TABLE `team` DISABLE KEYS */;
-INSERT INTO `team` VALUES (1,'Gryffondor',1),(2,'Serpentard',1),(3,'Seirdaigle',1),(4,'Poufsouffle',1);
+INSERT INTO `team` VALUES (1,'Gryffondor',1,'/assets/images/teams/Gryffondor.png'),(2,'Serpentard',1,'/assets/images/teams/Serpentard.png'),(3,'Serdaigle',1,'/assets/images/teams/Serdaigle.png'),(4,'Poufsouffle',1,'/assets/images/teams/Poufsouffle.png');
 /*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -254,4 +255,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-18 16:12:46
+-- Dump completed on 2018-04-18 21:55:41

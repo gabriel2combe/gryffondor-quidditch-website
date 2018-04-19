@@ -59,7 +59,7 @@ ul#Contact__informations a i {
     margin-bottom: 1em;
 }
 
-svg path {
+#Contact__informations svg path {
     fill: #D6AE1D!important;
 }
 

@@ -6,35 +6,64 @@ body {
 }
 
 h1{
+    font-size: 45px;
     margin-top: 5vh;
+    width: 100%;
+    text-align: center;
     color: white;
 }
 
 h2
 {
     font-family: 'Cinzel Decorative', cursive;
+    font-size: 40px;
     margin-bottom: 5vh;
     color: white;
-    vertical-align: center;
 }
 
-h2:before {
-    content: '';
-    background:url('../images/vif_jaune.png');
+
+@media (min-width: 450px) {
+    .gardien:before {
+        content: '';
+        background:url('../images/goal.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .poursuiveurs:after {
+        content: '';
+        background:url('../images/broomstick.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .batteurs:before {
+        content: '';
+        background:url('../images/bat.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .attrapeur:after {
+        content: '';
+        background:url('../images/vif.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
 }
 
-h2:after {
-    content: '';
-    background:url('../images/vif_jaune_droite.png');
-}
-
-h2:before, h2:after {
-    background-size: cover;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    vertical-align: center;
-}
 
 .row
 {
@@ -68,7 +97,6 @@ h2:before, h2:after {
 
 .custom-card-img
 {
-    border-radius: 8px;
     width: 280px;
     height: 350px;
     position: absolute;
@@ -76,8 +104,6 @@ h2:before, h2:after {
 
 .custom-card-text
 {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     overflow: hidden;
     position: absolute;
     bottom: 0;
@@ -94,8 +120,6 @@ body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
     height: 100%;
     padding-top: 30px;
     background-color: rgba(0,0,0, 0.8);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
 }
 
 /*****************************************************/
