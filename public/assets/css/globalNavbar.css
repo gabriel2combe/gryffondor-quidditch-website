@@ -1,3 +1,6 @@
+/***************************************************************
+This CSS is applied to the whole site Navbar (layout.html.twig)
+***************************************************************/
 .fa-bars
 {
 	color: white;
@@ -11,12 +14,8 @@ svg
 
 #logo
 {
-	
-
-	
 	position: absolute;
 	top: 1px;
-
 }
 
 #social
@@ -31,57 +30,42 @@ svg
 	width: 60%;
 }
 
-
-
 #navbar a
 {
 	font-family: 'Poiret One', cursive;
 	font-size: 1.4rem;
 	color: black;
-	
 
 }
-
 
 #navbar
 {
 	position: relative;
-
 	background-color: #EEE!important;
 }
 
 .navbar-light .navbar-nav .nav-link
 {
-
-
 	font-family: 'Kanit', sans-serif;
 	color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover
 {
-
 	color: #833E2F;
 }
 
-
-
-
 @media screen and (max-width: 1024px) 
 {
-
-
-  	.ul-home 
+  	.ul-home
   	{
 	  	margin: auto;
 	  	width: 100%;
   	}
 
-
 	  .ul-home > li
 	{
 		margin:auto;
-
 	}
 }
 
@@ -97,12 +81,9 @@ svg
 		margin: auto;
 	}
 
-
-
 	#navbarNav
 	{
 		background-color: #EEE;
-
 	}
 
 	#navbarNav a
@@ -110,4 +91,3 @@ svg
 		color: black/*#833E2F*/;
 	}
 }
-
