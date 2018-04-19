@@ -34,6 +34,23 @@ h2 > img{
     }
 }
 
+.thanks{
+    font-size: xx-large;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+}
+
+.thanks img{
+    width: 80px;
+    height: 80px;
+    margin-top: 40px;
+}
+
+.successful-container{
+    margin-top: 100px;
+}
+
 ul#Contact__informations {
     text-align: center;
     background-color: rgba(255,255,255,0.5);
@@ -116,7 +133,7 @@ form .form--item textarea {
 
 }
 
-form .submit_button {
+form .submit_button, .btn-custom{
     background-color: #833E2F;
     color: white;
     display: inline-block;
@@ -135,6 +152,16 @@ form .submit_button {
     border-radius: .25rem;
     transition: color .15s;
 }
+
+.btn-custom:hover{
+    color: white;
+    background-color: #a64a4a;
+}
+
+.btn-custom{
+    margin: 40px 10px;
+}
+
 
 /* map */
 #Contact__map {

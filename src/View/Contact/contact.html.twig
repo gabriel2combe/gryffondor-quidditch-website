@@ -22,7 +22,7 @@
                     <li>
                         <div>
                             <i class="fas fa-compass fa-2x"></i>
-                            <p>{{ contactInfo.0.title|nl2br }} :</p>
+                            <p>{{ contactInfo.0.title|raw }} :</p>
                             <p>{{ contactInfo.0.content|nl2br }}</p>
                         </div>
                     </li>
@@ -43,22 +43,22 @@
                         </div>
                     </li>
                 </ul>
-                <form name="contact_form" method="post" action="/contact" class="col-xs-12 col-md-8">
+                <form name="contact_form" method="post" action="" class="col-xs-12 col-md-8">
                     <div class="form--item">
-                        <label for="contact_form_email"><span>E-mail&nbsp;*</span></label>
-                        <input type="email" id="contact_form_email" name="contact_form_email" required="required" placeholder="Votre adresse email">
+                        <label for="email"><span>E-mail&nbsp;*</span></label>
+                        <input type="email" id="email" name="email" required="required" placeholder="Votre adresse email">
                     </div>
                     <div class="form--item">
-                        <label for="contact_form_subject"><span>Sujet&nbsp;*</span></label>
-                        <select id="contact_form_subject" name="contact_form_subject">
-                            <option value="candidature">Candidature</option>
-                            <option value="demande_informations">Demande d'informations</option>
-                            <option value="autres">Autres</option>
+                        <label for="subject"><span>Sujet&nbsp;*</span></label>
+                        <select id="subject" name="subject">
+                            <option value="Candidature">Candidature</option>
+                            <option value="Demande_d'informations">Demande d'informations</option>
+                            <option value="Autres">Autres</option>
                         </select>
                     </div>
                     <div class="form--item">
-                        <label for="contact_form_message"><span>Message&nbsp;*</span></label>
-                        <textarea id="contact_form_message" name="contact_form_message" required="required" placeholder="Votre message ici"></textarea>
+                        <label for="content"><span>Message&nbsp;*</span></label>
+                        <textarea id="content" name="content" required="required" placeholder="Votre message ici"></textarea>
                     </div>
 
                     <div class="text-center">
