@@ -1,0 +1,31 @@
+.footer_logo, .footer_sponsors{
+	background-color: white;
+}
+
+.footer_wrapper, .footer_copyright{
+	background-color: #EEEEEE;
+}
+
+.footer_text_wrapper{
+	font-size: 1rem;
+	text-transform: uppercase;
+	color: darkred;
+	border-bottom: 1px solid yellow;
+	line-height:0.1em; 
+	padding-top: 1em;
+	font-weight: bold;
+}
+
+.footer_text {
+    background:white;
+    padding:0px 10px; 
+}
+
+.flex_container {
+	display: flex;
+	justify-content: center;
+}
+
+.flex_container > img{
+	padding: 5px 8px;
+}
