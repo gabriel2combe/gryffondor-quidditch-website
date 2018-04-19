@@ -8,6 +8,7 @@
  */
 
 namespace Controller;
+use Model\GameManager;
 
 
 /**
