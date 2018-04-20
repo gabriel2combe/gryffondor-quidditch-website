@@ -1,53 +1,125 @@
 body {
-    font-size: 1rem;
+    font-size: 20px;
+    /*background-color: #562b2b;*/
+    background: url("../images/players/team_wallpaper.jpg") no-repeat fixed center;
+    background-size: cover;
 }
 
 h1{
+    font-size: 45px;
     margin-top: 5vh;
+    width: 100%;
+    text-align: center;
+    color: white;
 }
 
 h2
 {
     font-family: 'Cinzel Decorative', cursive;
+    font-size: 40px;
     margin-bottom: 5vh;
+    color: white;
 }
+
+
+@media (min-width: 450px) {
+    .gardien:before {
+        content: '';
+        background:url('../images/goal.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .poursuiveurs:after {
+        content: '';
+        background:url('../images/broomstick.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .batteurs:before {
+        content: '';
+        background:url('../images/bat.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+
+    .attrapeur:after {
+        content: '';
+        background:url('../images/vif.png');
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        vertical-align: center;
+    }
+}
+
 
 .row
 {
-  margin-bottom: 8vh;
+    margin-bottom: 8vh;
 }
 
-.card
+.position-bar
 {
-  border-radius: 10px;
-  border: solid 2px rgba(0, 0, 0, 0.5);
-  margin-bottom: 5px;
-  min-width: 360px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*border-top: white solid 2px;
+    border-bottom: white solid 2px;*/
 }
 
-.card-img-top
+.position-bar:not(:first-of-type)
 {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  width: 180px;
-  height: 225px;
+    margin-top: 125px;
 }
 
-.card-body
+/*******************************************************/
+/*           Hoverable/clickable cards                 */
+/*******************************************************/
+
+.custom-card
 {
-  width: 180px;
-  height: 225px;
+    position: relative;
+    width: 280px;
+    height: 350px;
+    margin-bottom: 10px;
 }
 
-@media (hover: hover)
+.custom-card-img
 {
-  .card-hover
-  {
-    display: none!important;
-  }
+    width: 280px;
+    height: 350px;
+    position: absolute;
 }
 
-@media screen and (min-width: 575px)
+.custom-card-text
 {
-
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0, 0.6);
+    color: white;
+    text-align: center;
+    transition: height 1s, padding-top 1s, background-color 1s;
 }
+
+body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
+{
+    height: 100%;
+    padding-top: 30px;
+    background-color: rgba(0,0,0, 0.8);
+}
+
+/*****************************************************/
