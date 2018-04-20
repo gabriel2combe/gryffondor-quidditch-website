@@ -10,7 +10,7 @@
 namespace Model;
 
 /**
- * Class Player
+ * Class Game
  *
  */
 class Game
@@ -37,7 +37,7 @@ class Game
     /**
      * @param int $id
      *
-     * @return Item
+     * @return Game
      */
     public function setId(int $id): Game
     {
@@ -52,136 +52,142 @@ class Game
     public function getDateTimeGame(): string
     {
         return $this->dateTimeGame;
+    }
+
+    /**
+     * @return Game
+     */
+    public function setDateTimeGame(): Game
+    {
+        $this->dateTimeGame;
+        return $this;
 
     }
 
     /**
      * @return string
      */
-    public function setDateTimeGame(): string
+    public function getNameTeam1(): string
     {
-         $this->dateTimeGame;
-
-        return $this;
-
+        return $this->nameTeam1;
     }
 
     /**
-     * @param string $lastName
+     * @param string $nameTeam
      *
-     * @return Player
+     * @return Game
      */
-    public function getNameTeam1(): Game
+    public function setNameTeam1($nameTeam): Game
     {
-        $this->nameTeam1;
-
+        $this->nameTeam1 = $nameTeam;
         return $this;
     }
 
     /**
-     * @param string $lastName
+     * @return string
+     */
+    public function getScore1(): string
+    {
+            $score = $this->score1;
+            if($score=="") $score = "-";
+            return $score;
+    }
+
+    /**
+     * @param string $score
      *
-     * @return Player
+     * @return Game
      */
-    public function setNameTeam1(): Game
+    public function setScore1($score): Game
     {
-        $this->nameTeam1;
-
+        $this->score1 = $score;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getScore1(): int
+    public function getNameTeam2(): string
     {
-            $this->score1;
-
-            return $this;
+        return "TUTU"; //$this->nameTeam2;
     }
 
     /**
-     * @return string
-     */
-    public function setScore1(): int
-    {
-        $this->score1;
-
-        return $this;
-    }
-
-
-
-
-
-    /**
-     * @param string $lastName
+     * @param string $nameTeam
      *
-     * @return Player
+     * @return Game
      */
-    public function getNameTeam2(): Game
+    public function setNameTeam2($nameTeam): Game
     {
-        $this->nameTeam2;
-
+        $this->nameTeam2 = $nameTeam;
         return $this;
     }
 
     /**
-     * @param string $lastName
+     * @return string
+     */
+    public function getScore2(): string
+    {
+        return $this->score2;
+    }
+
+    /**
+     * @param string $score
      *
-     * @return Player
+     * @return Game
      */
-    public function setNameTeam2(): Game
+    public function setScore2($score): Game
     {
-        $this->nameTeam2;
-
-        return $this;
-    }
-
-
-
-    /**
-     * @return string
-     */
-    public function getScore2(): int
-    {
-        $this->score2;
-
+        $this->score2 = $score;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function setScore2(): int
-    {
-        $this->score2;
-
-        return $this;
-    }
-
     public function getLogoTeam1():string
     {
-        $this->logoTeam1;
-        return $this;
+        return $this->logoTeam1;
     }
 
-    public function setLogoTeam1():string
+    /**
+     * @param string $logo
+     *
+     * @return Game
+     */
+    public function setLogoTeam1($logo): Game
     {
-        $this->logoTeam1;
+        $this->logoTeam1 = $logo;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getLogoTeam2():string
     {
-        $this->logoTeam2;
+        return $this->logoTeam2;
+    }
+
+    /**
+     * @param string $logo
+     *
+     * @return Game
+     */
+    public function setLogoTeam2($logo): Game
+    {
+        $this->logoTeam2 = $logo;
         return $this;
     }
 
-    public function setLogoTeam2():string
+    /**
+     * @return string
+     */
+    public function getDate(): string
     {
-        $this->logoTeam2;
-        return $this;
+        $date = strtotime($this->dateTimeGame);
+        $date = date('d-m-Y', $date);
+        return "TOTOOOOOO";
     }
 
 

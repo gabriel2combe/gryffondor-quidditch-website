@@ -7,13 +7,6 @@
     justify-content: center;
 }
 
-
-
-
-
-
-
-
 /***********placement et styles des vignettes matchs********/
 
 .ligne
@@ -32,13 +25,13 @@
     font-weight: bold;
     color: #EEEEEE;
     margin: auto;
-    margin-top: 1%;
 }
 
 /*style et placement des scores*/
 .score
 {
     font-weight: bold;
+    font-size: 40px;
     color: #EEEEEE;
     margin: auto;
 }
@@ -46,12 +39,12 @@
 /*style et emplacement des nom d'&quipe*/
 .nameTeam
 {
+
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 20px;
     color: white;
     text-align: center;
+    margin: 5px;
 }
 
-.nameTeam2
-{
-    color: white;
-    text-align: center;
-}
+
