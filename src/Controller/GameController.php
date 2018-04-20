@@ -28,7 +28,6 @@ class GameController extends AbstractController
         $gameManager = new GameManager();
         $games = $gameManager->selectAllGames();
 
-
         return $this->twig->render(
             'Calendar/calendar.html.twig',
             [

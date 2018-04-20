@@ -13,9 +13,6 @@
           <h1>Calendrier</h1>
       </div>
 
-
-
-
     {% for game in games %}
 
     <div class="container-fluid">
@@ -35,7 +32,7 @@
     <div class="dateMatch d-flex justify-content-center">
         <p class="text-center">
             {{ game.getDate }}<br>
-            {{ game.dateTimeGame }}<br>
+            {{ game.getTime }}<br>
 
         </p>
     </div>

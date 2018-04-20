@@ -109,7 +109,7 @@ class Game
      */
     public function getNameTeam2(): string
     {
-        return "TUTU"; //$this->nameTeam2;
+        return $this->nameTeam2;
     }
 
     /**
@@ -126,9 +126,11 @@ class Game
     /**
      * @return string
      */
-    public function getScore2(): string
+    public function getScore2() : string
     {
-        return $this->score2;
+        $score = $this->score2;
+        if($score=="") $score = "-";
+        return $score;
     }
 
     /**
@@ -186,8 +188,18 @@ class Game
     public function getDate(): string
     {
         $date = strtotime($this->dateTimeGame);
-        $date = date('d-m-Y', $date);
-        return "TOTOOOOOO";
+        $date = date('d/m/Y', $date);
+        return $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTime(): string
+    {
+        $time = strtotime($this->dateTimeGame);
+        $time = date('H:i', $time);
+        return $time;
     }
 
 

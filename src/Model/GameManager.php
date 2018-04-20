@@ -14,7 +14,7 @@ namespace Model;
  */
 class GameManager extends AbstractManager
 {
-    const TABLE = 'plays';
+    const TABLE = 'game';
 
     /**
      *  Initializes this class.
