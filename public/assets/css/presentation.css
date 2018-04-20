@@ -1,17 +1,61 @@
 body {
-    font-size: 21px;
+
+    background-color: #dbd5d4;
+
+
 }
+
+
 
 h1{
-    margin-top: 150px;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    color: #d6ae1d;
 }
 
-h2 
-{
-    margin-bottom: 5vh;  
+h2 {
+
+    font-family: 'Cinzel Decorative', cursive;
+    margin-top: 300px;
+    font-size: 42px;
+    color: #d6ae1d;
+    text-align: center;
+
 }
 
-.row
-{
-	margin-bottom: 12vh;
+
+
+p {
+
+    background-color: #9e1607;
+    padding: 20px;
+    color: white;
+    font-size: 22px;
+
+}
+
+img.hat {
+    margin-left: 200px;
+    height: 150px;
+
+}
+
+img.marmite {
+    margin-left: 170px;
+    height: 250px;
+}
+
+img.harry {
+    margin-left: 120px;
+    height: 300px;
+    height: 300px;
+
+}
+
+img.vif {
+    height: 100px;
+}
+
+.row {
+    margin-bottom: 100px;
 }
