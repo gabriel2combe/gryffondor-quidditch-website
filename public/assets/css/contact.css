@@ -2,6 +2,7 @@
 body{
     background: url("../images/logo/lion_vif.png") fixed center no-repeat #DBD5D4;
     background-size: 35vw;
+    padding-top: 80px;
 }
 /* section init */
 

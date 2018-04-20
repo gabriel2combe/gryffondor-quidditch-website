@@ -3,6 +3,7 @@ body {
     /*background-color: #562b2b;*/
     background: url("../images/players/team_wallpaper.jpg") no-repeat fixed center;
     background-size: cover;
+    padding-top: 80px;
 }
 
 h1{
