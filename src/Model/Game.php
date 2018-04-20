@@ -21,6 +21,8 @@ class Game
     private $score1;
     private $nameTeam2;
     private $score2;
+    private $logoTeam1;
+    private $logoTeam2;
 
 
 
@@ -155,6 +157,30 @@ class Game
     {
         $this->score2;
 
+        return $this;
+    }
+
+    public function getLogoTeam1():string
+    {
+        $this->logoTeam1;
+        return $this;
+    }
+
+    public function setLogoTeam1():string
+    {
+        $this->logoTeam1;
+        return $this;
+    }
+
+    public function getLogoTeam2():string
+    {
+        $this->logoTeam2;
+        return $this;
+    }
+
+    public function setLogoTeam2():string
+    {
+        $this->logoTeam2;
         return $this;
     }
 

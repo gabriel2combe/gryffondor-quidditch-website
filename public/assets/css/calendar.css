@@ -27,12 +27,12 @@
     background: #833E2F;
 }
 
-/*style et placement du "VS"*/
-.vs
-{
+/*style et placement de la date*/
+.dateMatch {
     font-weight: bold;
     color: #EEEEEE;
     margin: auto;
+    margin-top: 1%;
 }
 
 /*style et placement des scores*/
@@ -41,4 +41,17 @@
     font-weight: bold;
     color: #EEEEEE;
     margin: auto;
+}
+
+/*style et emplacement des nom d'&quipe*/
+.nameTeam
+{
+    color: white;
+    text-align: center;
+}
+
+.nameTeam2
+{
+    color: white;
+    text-align: center;
 }

@@ -16,51 +16,43 @@
 
 
 
-    {% for id in id %}
+    {% for game in games %}
 
-    {% for date in date %}
-
-        <div>
-            <p>{{ game.dateTimeGame }}</p>
-        </div>
-
-    {% endfor %}
     <div class="container-fluid">
-    <div class="row ligne">
+        <div class="row ligne">
 
-    {% for team1 in $team1 %}
-        <div class="">
-            <a href="#">{{ team.name }}</a>
+
+        <div class="logo">
+            <p class="nameTeam">{{ game.nameTeam1 }}</p>
+            <img class="card-img-top" src="{{ game.logoTeam1 }}" alt="Logo équipe">
         </div>
-    {% endfor %}
 
 
-    {% for scores1 in score1 %}
         <div class="score">
             <p>{{ game.score1 }}</p>
         </div>
-    {% endfor %}
 
-    <div class="vs">
-        <p>VS</p>
+    <div class="dateMatch d-flex justify-content-center">
+        <p class="text-center">
+            {{ game.dateTimeGame }}<br>
+
+        </p>
     </div>
 
-    {% for scores2 in score2 %}
         <div class="score">
             <p>{{ game.score2 }}</p>
         </div>
-    {% endfor %}
 
 
-    {% for team1 in $team1 %}
-        <div class="">
-            <a href="#">{{ team.name }}</a>
-        </div>
-    {% endfor %}
+            <div class="logo">
+                <p class="nameTeam2">{{ game.nameTeam2 }}</p>
+                <img class="card-img-top" src="{{ game.logoTeam2 }}" alt="Logo équipe">
+            </div>
 
 
         </div>
         </div>
+
     {% endfor %}
 
 

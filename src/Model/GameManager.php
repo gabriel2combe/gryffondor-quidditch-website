@@ -27,17 +27,20 @@ class GameManager extends AbstractManager
     /**
      * Get rows from database by .
      *
-     * @param  int $position
-     *
      * @return array
      */
-    public function selectByGame(int $position)
+    public function selectAllGames()
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("
-           SELECT game.g.id, g.dateTimeGame, t1.name 
-           AS nameTeam1, g.score1, t2.name 
-           AS nameTeam2, g.score2 
+        SELECT 	g.id, 
+		g.dateTimeGame, 
+		t1.name AS nameTeam1, 
+        g.score1, 
+        t2.name AS nameTeam2,
+        g.score2, 
+        t1.image AS logoTeam1,
+        t2.image AS logoTeam2
            FROM game
            AS g 
            JOIN team 
@@ -49,7 +52,6 @@ class GameManager extends AbstractManager
 
 ");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
-        $statement->bindValue('position', $position, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
