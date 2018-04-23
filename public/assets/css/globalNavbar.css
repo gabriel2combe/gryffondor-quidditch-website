@@ -16,13 +16,9 @@ svg
 {
 	position: absolute;
 	top: 1px;
+
 }
 
-#social
-{
-	color: white;
-	font-size: 1.95rem;
-}
 
 .ul-home
 {
@@ -34,13 +30,14 @@ svg
 {
 	font-family: 'Poiret One', cursive;
 	font-size: 1.4rem;
-	color: black;
+	color: #cd900e;
+
 
 }
 
 #navbar
 {
-	background-color: #EEE!important;
+	background-color: #480405!important;
 }
 
 .navbar-light .navbar-nav .nav-link
@@ -78,15 +75,22 @@ svg
 	#btn-burger
 	{
 		margin: auto;
+		border-color:#cd900e ;
 	}
 
 	#navbarNav
 	{
-		background-color: #EEE;
+		background-color: #480405;
 	}
 
 	#navbarNav a
 	{
-		color: black/*#833E2F*/;
+		color: #cd900e;
 	}
+
+	.fa-bars
+	{
+		color: #cd900e;
+	}
+
 }
