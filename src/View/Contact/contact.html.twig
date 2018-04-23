@@ -8,6 +8,19 @@
 
 {% block content %}
         <div class="container">
+            {% if error != "" %}
+                <div class="alert alert-warning" role="alert">
+                    {{ error|raw }}
+                </div>
+            {% elseif sendEmail == "successful" %}
+                <div class="alert alert-success" role="alert">
+                    Votre email a bien été envoyé. Nous vous contacterons dans les plus brefs délais.
+                </div>
+            {% elseif sendEmail != "" %}
+                <div class="alert alert-danger" role="alert">
+                    {{ sendEmail|raw }}
+                </div>
+            {% endif %}
             <div class="row">
                 <div class="col-xs-12">
                     <header class="text-center">
@@ -46,19 +59,25 @@
                 <form name="contact_form" method="post" action="" class="col-xs-12 col-md-8">
                     <div class="form--item">
                         <label for="email"><span>E-mail&nbsp;*</span></label>
-                        <input type="email" id="email" name="email" required="required" placeholder="Votre adresse email">
+                        <input type="email" id="email" name="email" placeholder="Votre adresse email" value="{{ email }}">
                     </div>
                     <div class="form--item">
                         <label for="subject"><span>Sujet&nbsp;*</span></label>
                         <select id="subject" name="subject">
-                            <option value="Candidature">Candidature</option>
-                            <option value="Demande_d'informations">Demande d'informations</option>
-                            <option value="Autres">Autres</option>
+                            <option value="Candidature"
+                                    {% if subject == "Candidature" %}selected="selected"{% endif %}
+                            >Candidature</option>
+                            <option value="Demande_d'informations"
+                                    {% if subject == "Demande_d'informations" %}selected="selected"{% endif %}
+                            >Demande d'informations</option>
+                            <option value="Autres"
+                                    {% if subject == "Autres" %}selected="selected"{% endif %}
+                            >Autres</option>
                         </select>
                     </div>
                     <div class="form--item">
                         <label for="content"><span>Message&nbsp;*</span></label>
-                        <textarea id="content" name="content" required="required" placeholder="Votre message ici"></textarea>
+                        <textarea id="content" name="content" placeholder="Votre message ici">{{ content }}</textarea>
                     </div>
 
                     <div class="text-center">

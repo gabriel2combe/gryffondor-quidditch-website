@@ -27,6 +27,5 @@ $routes = [
     'Contact' => [ // Controller
         ['index', '/contact', 'GET'], // action, url, method
         ['sendMail', '/contact', 'POST'], // action, url, method
-        ['successful', '/successful', 'GET'], // action, url, method
     ],
 ];
