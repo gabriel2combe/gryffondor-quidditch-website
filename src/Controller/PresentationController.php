@@ -24,7 +24,12 @@ class PresentationController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Presentation/presentation.html.twig');
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        return $this->twig->render('Presentation/presentation.html.twig',
+            [
+                'admin' => $admin
+            ]
+        );
     }
 
 }

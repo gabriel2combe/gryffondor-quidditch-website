@@ -25,7 +25,11 @@ class AdminLoginController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('AdminLogin/adminLogin.html.twig');
+        if(!isset($_SESSION['admin'])) {
+            return $this->twig->render('AdminLogin/adminLogin.html.twig');
+        }else{
+            header('Location: /');
+        }
     }
 
     /**
@@ -41,10 +45,10 @@ class AdminLoginController extends AbstractController
         $adminLogin = $adminLoginManager->selectByName($login);
         if ($adminLogin) {
             if ($adminLogin->isGoodPassword($password)) {
+                $_SESSION['admin'] = $login;
                 return $this->twig->render('Home/home.html.twig',
                     [
-                        'login' => $login,
-                        'errorCode' => 'wellConnected'
+                        'admin' => $login
                     ]
                 );
             } else {

@@ -27,6 +27,7 @@ class ContactController extends AbstractController
      */
     public function index()
     {
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $contactManager = new ContactManager();
         $contactInfo = $contactManager->selectAll();
         //Récupère l'adresse email pour préremplir le formulaire
@@ -50,7 +51,8 @@ class ContactController extends AbstractController
                 'content' => $content,
                 'subject' => $subject,
                 'error' => $error,
-                'sendEmail' => $sendEmail
+                'sendEmail' => $sendEmail,
+                'admin' => $admin
             ]
         );
     }
