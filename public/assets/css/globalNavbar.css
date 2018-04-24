@@ -10,6 +10,7 @@ This CSS is applied to the whole site Navbar (layout.html.twig)
 svg
 {
 	height: 55px;
+	fill: #cd900e;
 }
 
 #logo
@@ -74,7 +75,7 @@ svg
 
 	#btn-burger
 	{
-		margin: auto;
+		margin-left: auto;
 		border-color:#cd900e ;
 	}
 
