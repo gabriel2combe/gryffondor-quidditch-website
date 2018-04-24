@@ -39,14 +39,30 @@ class AdminLoginController extends AbstractController
         $password = (isset($_POST['password'])) ? $_POST['password'] : "";
         $adminLoginManager = new AdminLoginManager();
         $adminLogin = $adminLoginManager->selectByName($login);
-        $check = $adminLogin->isGoodPassword($password);
-
-        return $this->twig->render('AdminLogin/adminLogin.html.twig',
-            [
-                'adminLogin' => $adminLogin,
-                'check' => $check
-            ]
-        );
+        if ($adminLogin) {
+            if ($adminLogin->isGoodPassword($password)) {
+                return $this->twig->render('Home/home.html.twig',
+                    [
+                        'login' => $login,
+                        'errorCode' => 'wellConnected'
+                    ]
+                );
+            } else {
+                return $this->twig->render('AdminLogin/adminLogin.html.twig',
+                    [
+                        'login' => $login,
+                        'errorCode' => 'wrongPassword'
+                    ]
+                );
+            }
+        }else{
+            return $this->twig->render('AdminLogin/adminLogin.html.twig',
+                [
+                    'login' => $login,
+                    'errorCode' => 'wrongLogin'
+                ]
+            );
+        }
     }
 
 }
