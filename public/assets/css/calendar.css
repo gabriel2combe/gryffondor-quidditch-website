@@ -1,31 +1,78 @@
+
+
+
+/*placement de l'image principale*/
+.margin
+{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
+
 /*style du titre*/
 
 .title_calendar
 {
-    margin-top: 10%;
-    margin-bottom: 5%;
+
+    margin-left: 0; /*PLUS DE MARGE*/
+    margin-right: 0; /*PLUS DE MARGE*/
+    font-family: 'Cinzel Decorative', cursive;
+    margin-top: -20%;
+    margin-bottom: 20%;
     justify-content: center;
+    color: #480405;
+    font-size: 5vw;
+    font-weight: bold;
 }
+
+
 
 /***********placement et styles des vignettes matchs********/
 
 .ligne
 {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 2%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background: #833E2F;
 }
 
+.match_banner
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logo_score_boxes
+{
+    display: flex;
+    flex-direction: row;
+}
+
 /*style et placement de la date*/
 .dateMatch {
+
     font-weight: bold;
     color: #EEEEEE;
     margin: auto;
 }
+
+.date_box
+{
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+    background: #333333;
+}
+
+/*style du box logo*/
+
+
 
 /*style et placement des scores*/
 .score
@@ -46,5 +93,90 @@
     text-align: center;
     margin: 5px;
 }
+
+
+
+
+
+/*style de l'équipe 1 */
+
+.logo_score_box1
+{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo_score_box2
+{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nameTeam
+{
+
+}
+
+@media (max-width: 992px)
+{
+
+
+
+
+
+}
+
+
+
+@media (max-width: 768px)
+{
+
+
+
+
+}
+
+@media (max-width: 550px)
+{
+
+    body
+    {
+        padding-top: 60px;
+    }
+
+    .banner
+    {
+        display: none;
+    }
+
+    .logo_score_boxes
+    {
+
+        flex-direction: column;
+    }
+
+    .logo_score_box2
+    {
+        border-top: solid black 1px;
+        flex-direction: row-reverse;
+    }
+
+    .logo_score_box2, .logo_score_box1
+    {
+        width: 100%;
+    }
+
+    .logo
+    {
+        
+    }
+
+}
+
+
 
 
