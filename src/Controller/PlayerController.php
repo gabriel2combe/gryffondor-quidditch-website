@@ -24,6 +24,7 @@ class PlayerController extends AbstractController
      */
     public function index()
     {
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $playerManager = new PlayerManager();
         $players = $playerManager->selectAll();
         $gardiens = $playerManager->selectByPosition(3);
@@ -38,7 +39,8 @@ class PlayerController extends AbstractController
                 'gardiens' => $gardiens,
                 'attrapeurs' => $attrapeurs,
                 'poursuiveurs' => $poursuiveurs,
-                'batteurs' => $batteurs
+                'batteurs' => $batteurs,
+                'admin' => $admin
             ]
         );
     }
