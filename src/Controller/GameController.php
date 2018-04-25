@@ -38,4 +38,26 @@ class GameController extends AbstractController
         );
     }
 
+    /**
+     * Display calendar listing
+     *
+     * @return string
+     */
+
+    public function add() //exemple !!!!!!!!!!!!!!!
+    {
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        $gameManager = new GameManager();
+        $games = $gameManager->selectAllGames();
+
+        return $this->twig->render(
+            'Calendar/add.html.twig',
+            [
+                'games' => $games,
+                'admin' => $admin
+            ]
+        );
+    }
+
+
 }
