@@ -9,6 +9,7 @@
 
 namespace Controller;
 
+use Model\BroomstickManager;
 use Model\PlayerManager;
 
 /**
@@ -66,6 +67,8 @@ class PlayerController extends AbstractController
                 'lastName' => $_POST['lastName'],
                 'firstName' => $_POST['firstName'],
                 'size' => $_POST['size'],
+                'birthDate' => $_POST['birthDate'],
+                'idBroomstick' => $_POST['idBroomstick']
             ];
 
             $playerManager->update($id, $data);
@@ -78,11 +81,15 @@ class PlayerController extends AbstractController
             }
         }
         $player = $playerManager->selectOneById($id);
+        $broomstickManager = new BroomstickManager();
+        $broomsticks = $broomstickManager->selectAll();
+
 
         return $this->twig->render(
             'Player/edit.html.twig',
             [
                 'player' => $player,
+                'broomsticks' => $broomsticks,
                 'admin' => $admin
             ]
         );
