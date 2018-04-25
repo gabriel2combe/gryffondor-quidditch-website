@@ -4,5 +4,13 @@
  <link rel="stylesheet" type="text/css" href="../assets/css/homeNavbar.css">
  <link rel="stylesheet" type="text/css" href="../assets/css/home.css">
 {% endblock %}
-{% block navbar %}{% include 'navbar/navbar.html.twig'%}{% endblock %}
-
+{% block navbar %}{% include 'Navbar/homeNavbar.html.twig'%}{% endblock %}
+{% block footer %}{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row logo d-flex align-items-center">
+            <img class="img-logo" src="/assets/images/home/homeLogo.png">
+        </div>
+    </div>
+        
+{% endblock %}

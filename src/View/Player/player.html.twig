@@ -1,0 +1,111 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Composition de l'équipe{% endblock %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="../assets/css/player.css">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row d-flex justify-content-around">
+        <h1>Composition de l'équipe</h1>
+    </div>
+    <div class="row position-bar d-flex justify-content-around">
+      <h2 class="ml-3 mb-0 gardien"> Gardien</h2>
+    </div>
+    <div class="row d-flex justify-content-around pt-2 pb-3">
+
+        {% for gardien in gardiens %}
+            <div class="custom-card">
+                <img class="custom-card-img" src="{{ gardien.picture }}" alt="Photo de {{ gardien.lastName }} {{ gardien.firstName }}">
+                <div class="custom-card-text">
+                    {{ gardien.lastName }}<br/>
+                    {{ gardien.firstName }}<br/><br/>
+                    {{ gardien.size }} cm<br/>
+                    {{ gardien.getAge }} ans<br/><br/>
+                    Balai :<br/>
+                    {{ gardien.broomstickModel }}<br/>
+                    {{ gardien.broomstickSpeed }}km/h<br/>
+                </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+
+    <div class="row position-bar d-flex justify-content-around">
+      <h2 class="ml-3 mb-0 poursuiveurs">Poursuiveurs </h2>
+    </div>
+    <div class="row d-flex justify-content-around pt-2 pb-3">
+        {% for poursuiveur in poursuiveurs %}
+            <div class="custom-card">
+                <img class="custom-card-img" src="{{ poursuiveur.picture }}" alt="Photo de {{ poursuiveur.lastName }} {{ poursuiveur.firstName }}">
+                <div class="custom-card-text">
+                    {{ poursuiveur.lastName }}<br/>
+                    {{ poursuiveur.firstName }}<br/><br/>
+                    {{ poursuiveur.size }} cm<br/>
+                    {{ poursuiveur.getAge }} ans<br/><br/>
+                    Balai :<br/>
+                    {{ poursuiveur.broomstickModel }}<br/>
+                    {{ poursuiveur.broomstickSpeed }}km/h<br/>
+                </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+
+    <div class="row position-bar d-flex justify-content-around">
+      <h2 class="ml-3 mb-0 batteurs"> Batteurs</h2>
+    </div>
+    <div class="row d-flex justify-content-around pt-2 pb-3">
+        {% for batteur in batteurs %}
+            <div class="custom-card">
+                <img class="custom-card-img" src="{{ batteur.picture }}" alt="Photo de {{ batteur.lastName }} {{ batteur.firstName }}">
+                <div class="custom-card-text">
+                    {{ batteur.lastName }}<br/>
+                    {{ batteur.firstName }}<br/><br/>
+                    {{ batteur.size }} cm<br/>
+                    {{ batteur.getAge }} ans<br/><br/>
+                    Balai :<br/>
+                    {{ batteur.broomstickModel }}<br/>
+                    {{ batteur.broomstickSpeed }}km/h<br/>
+                </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+
+    <div class="row position-bar d-flex justify-content-around">
+      <h2 class="ml-3 mb-0 attrapeur">Attrapeur </h2>
+    </div>
+    <div class="row d-flex justify-content-around pt-2 pb-3">
+        {% for attrapeur in attrapeurs %}
+            <div class="custom-card">
+                <img class="custom-card-img" src="{{ attrapeur.picture }}" alt="Photo de {{ attrapeur.lastName }} {{ attrapeur.firstName }}">
+                <div class="custom-card-text">
+                    {{ attrapeur.lastName }}<br/>
+                    {{ attrapeur.firstName }}<br/><br/>
+                    {{ attrapeur.size }} cm<br/>
+                    {{ attrapeur.getAge }} ans<br/><br/>
+                    Balai :<br/>
+                    {{ attrapeur.broomstickModel }}<br/>
+                    {{ attrapeur.broomstickSpeed }}km/h<br/>
+                </div>
+            </div>
+        {% else %}
+            <p>Nothing to display</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/player.js"></script>
+<script src="/assets/js/watchForHover.js"></script>
+{% endblock %}

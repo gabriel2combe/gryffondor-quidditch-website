@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Calendrier{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="../assets/css/calendar.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid banner">
+    <div class="margin">
+    <img src="assets/images/teams/coupe_quidditch.jpg" class="img-fluid img_coupe" alt="Responsive image">
+    </div>
+</div>
+      <div class="row title_calendar" id="title_calendar">
+          <p>Calendrier</p>
+      </div>
+
+
+
+    {% for game in games %}
+
+
+
+    <div class="container">
+        <div class="row ligne">
+            <div class="match_banner">
+                <div class=" d-flex date_box justify-content-center">
+                    <p class="dateMatch text-center">
+                        {{ game.getDate }}<br>
+                        {{ game.getTime }}<br>
+                    </p>
+                </div>
+
+                <div class="logo_score_boxes">
+
+               <div class="logo_score_box1">
+
+                    <div class="logo">
+                        <p class="nameTeam img-fluid">{{ game.nameTeam1 }}</p>
+                        <img class="card-img-top" src="{{ game.logoTeam1 }}" alt="Logo équipe">
+                    </div>
+
+
+                    <div class="score">
+                        <p>{{ game.score1 }}</p>
+                    </div>
+               </div>
+
+            <div class="logo_score_box2">
+                    <div class="score score2">
+                        <p>{{ game.score2 }}</p>
+                    </div>
+
+
+                        <div class="logo">
+                            <p class="nameTeam">{{ game.nameTeam2 }}</p>
+                            <img class="card-img-top" src="{{ game.logoTeam2 }}" alt="Logo équipe">
+                        </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    {% endfor %}
+
+
+
+{% endblock %}

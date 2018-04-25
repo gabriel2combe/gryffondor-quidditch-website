@@ -15,19 +15,59 @@
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" href="/assets/images/favicon.png">
-
-    {% block stylesheet %}<link rel="stylesheet" type="text/css" href="../assets/css/globalNavbar.css">{% endblock %}
+    
+    {% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href="../assets/css/globalNavbar.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+    {% endblock %}
 
 </head>
 
 <body>
 
- {% block navbar %}{% include 'navbar/navbar_fix.html.twig'%}{% endblock %}
- {% block content %}{% endblock %}
+ {% block navbar %}{% include 'Navbar/globalNavbar.html.twig'%}{% endblock %}
+ {% block adminButton %}
+     {% if admin %}
+         <button
+                 type="button"
+                 class="btn btn-success"
+                 id="admin-button"
+                 data-toggle="modal"
+                 data-target="#adminControlPanel"
+         ><i class="fas fa-cogs"></i> Administration</button>
+
+         <!-- Modal -->
+         <div class="modal fade" id="adminControlPanel" tabindex="-1" role="dialog" aria-labelledby="adminControlPanel" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="adminControlPannelTitle">Panneau de contrôle</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         <a href="/logout" type="button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+     {% endif %}
+ {% endblock %}
+
+ {% block content %}
+ {% endblock %}
 
 
 
 </body>
+
+<footer>
+
+ {% block footer %}{% include 'footer/footer.html.twig'%}{% endblock %}
+
+</footer>
 
 {% block javascript %}
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
