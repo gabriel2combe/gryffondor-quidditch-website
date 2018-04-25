@@ -25,14 +25,15 @@ class GameController extends AbstractController
 
     public function index2() //exemple !!!!!!!!!!!!!!!
     {
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $gameManager = new GameManager();
         $games = $gameManager->selectAllGames();
 
         return $this->twig->render(
             'Calendar/calendar.html.twig',
             [
-                'games' => $games
-
+                'games' => $games,
+                'admin' => $admin
             ]
         );
     }
