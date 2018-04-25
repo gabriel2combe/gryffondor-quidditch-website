@@ -26,10 +26,13 @@
 <body>
 
  {% block navbar %}{% include 'Navbar/globalNavbar.html.twig'%}{% endblock %}
- {% block content %}
+ {% block adminButton %}
      {% if admin %}
-     <button type="button" class="btn btn-success" id="admin-button"><i class="fas fa-cogs"></i> Administration</button>
+         <button type="button" class="btn btn-success" id="admin-button"><i class="fas fa-cogs"></i> Administration</button>
      {% endif %}
+ {% endblock %}
+
+ {% block content %}
  {% endblock %}
 
 
