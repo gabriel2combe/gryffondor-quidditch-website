@@ -69,7 +69,13 @@ class PlayerController extends AbstractController
             ];
 
             $playerManager->update($id, $data);
-            header('Location: /team/edit-' . $id);
+
+            //mofifier la photo
+            if(isset($_FILES['picture'])){
+                $uploadDir = 'assets/images/players/';
+                $uploadFile = $uploadDir . $_POST['id'] . ".jpg";
+                move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
+            }
         }
         $player = $playerManager->selectOneById($id);
 
