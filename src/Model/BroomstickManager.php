@@ -12,9 +12,9 @@ namespace Model;
 /**
  *
  */
-class ContactManager extends AbstractManager
+class BroomstickManager extends AbstractManager
 {
-    const TABLE = 'contact';
+    const TABLE = 'broomstick';
 
     /**
      *  Initializes this class.
