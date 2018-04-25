@@ -29,11 +29,12 @@
 /*      ADMIN          */
 /***********************/
 
-.datebox > .boutedit
+.boutedit, .boutdel
 {
-    position: absolute;
-    left: 2vw;
+    /*A reprendre*/
 }
+
+
 
 
 /***********placement et styles des vignettes matchs********/

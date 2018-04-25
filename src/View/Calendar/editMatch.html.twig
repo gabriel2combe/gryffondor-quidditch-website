@@ -1,0 +1,70 @@
+{% extends 'Calendar/calendar.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block navbar %}{% endblock %}
+
+
+
+  {% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="card col-md-6 offset-md-3">
+        <div class="card-header">
+            <h1 class="mb-0 text-dark"> {{ game.nameTeam1 }} / {{ game.nameTeam2 }} </h1>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <input hidden name="id" value="{{ game.id }}">
+                <div class="form-group">
+                    <label for="nameTeam1">Equipe 1</label>
+                    <select name="nameTeam1" id="nameTeam1">
+
+
+
+                        {% for id in ids %}
+                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="nameTeam2">Equipe 2</label>
+                    <select name="nameTeam2" id="nameTeam2">
+
+                        {% for teams in teams %}
+                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="">Score Equipe 1</label>
+                    <input
+                            type="size"
+                            class="form-control"
+                            name="score1"
+                            id="size"
+                            value="{{ player.size }}"
+                            placeholder="Entrez la taille en cm"
+                    >
+                </div>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+                <a href="/team" type="button" class="btn btn-primary">Retour au site</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/player.js"></script>
+<script src="/assets/js/watchForHover.js"></script>
+{% endblock %}

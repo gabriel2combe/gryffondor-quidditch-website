@@ -29,8 +29,8 @@
             <div class="match_banner">
                 <div class=" d-flex date_box justify-content-center">
                     {% if admin %}
-                    <button type="button" class="btn btn-success boutedit">Editer le Match</button>
-                    <button type="button" class="btn btn-danger boutdel">Supprimer le match</button>
+                        <a href="/calendar/edit-{{ game.id }}"><button type="button" class="btn btn-success boutedit">Editer le Match</button></a>
+                        <a><button type="button" class="btn btn-danger boutdel">Supprimer le match</button></a>
                     {% endif %}
                     <p class="dateMatch text-center">
                         {{ game.getDate }}<br>

@@ -59,5 +59,20 @@ class GameController extends AbstractController
         );
     }
 
+    public function edit($id) //exemple !!!!!!!!!!!!!!!
+    {
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        $gameManager = new GameManager();
+        $game = $gameManager->selectOneGameById($id);
+
+        return $this->twig->render(
+            'Calendar/editMatch.html.twig',
+            [
+                'game' => $game,
+                'admin' => $admin
+            ]
+        );
+    }
+
 
 }
