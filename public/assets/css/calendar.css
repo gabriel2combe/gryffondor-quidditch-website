@@ -25,6 +25,16 @@
 }
 
 
+/***********************/
+/*      ADMIN          */
+/***********************/
+
+.datebox > .boutedit
+{
+    position: absolute;
+    left: 2vw;
+}
+
 
 /***********placement et styles des vignettes matchs********/
 
