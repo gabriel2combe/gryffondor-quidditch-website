@@ -28,7 +28,31 @@
  {% block navbar %}{% include 'Navbar/globalNavbar.html.twig'%}{% endblock %}
  {% block adminButton %}
      {% if admin %}
-         <button type="button" class="btn btn-success" id="admin-button"><i class="fas fa-cogs"></i> Administration</button>
+         <button
+                 type="button"
+                 class="btn btn-success"
+                 id="admin-button"
+                 data-toggle="modal"
+                 data-target="#adminControlPanel"
+         ><i class="fas fa-cogs"></i> Administration</button>
+
+         <!-- Modal -->
+         <div class="modal fade" id="adminControlPanel" tabindex="-1" role="dialog" aria-labelledby="adminControlPanel" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="adminControlPannelTitle">Panneau de contrôle</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         <a href="/logout" type="button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
      {% endif %}
  {% endblock %}
 
