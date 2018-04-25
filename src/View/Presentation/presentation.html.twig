@@ -10,13 +10,51 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center">Notre équipe<img class="vif" src="/assets/images/vif.png"></h1>
+                <h1 class="text-center">Notre équipe<img class="vif" src="/assets/images/vif.svg"></h1>
             </div>
         </div>
         <div class="row">
+            <div class="col-12 text-center">
+                <img id="groupe" src="/assets/images/gryf-team-big.jpg" class="img-fluid">
+            </div>
+        </div>
+
+        {% for info in presentationInfo %}
+
+        <div class="row bloc">
+            <div class="col-12 col-md-6 text-center align-middle">
+                <h2>{{ info.title }}</h2>
+                <img class="icone" src="{{ info.logo }}">
+            </div>
             <div class="col-12 col-md-6">
+                <p>{{ info.content }}</p>
+                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <img src="{{ info.picture1 }}" alt="{{ info.title }} - Illustration 1" class="img-fluid">
+                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <img src="{{ info.picture2 }}" alt="{{ info.title }} - Illustration 2" class="img-fluid">
+                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <img src="{{ info.picture3 }}" alt="{{ info.title }} - Illustration 3" class="img-fluid">
+                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+
+<!--
+        <div class="row">
+            <div class="col-12 col-md-6 text-center">
                 <h2>Notre histoire</h2>
-                <img class="hat" src="/assets/images/hat.png">
+                <img class="icone" src="/assets/images/hat.png">
             </div>
             <div class="col-12 col-md-6">
                 <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.<br> Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
@@ -39,9 +77,9 @@
                 <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.<br> Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
                 </p>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <h2>Nos valeurs</h2>
-                <img class="marmite" src="/assets/images/marm.png">
+                <img class="icone" src="/assets/images/marmite.svg">
             </div>
         </div>
         <div class="row">
@@ -57,7 +95,7 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <h2>Nos engagements</h2>
                 <img class="harry" src="/assets/images/harryp.png">
             </div>
@@ -76,7 +114,7 @@
             <div class="col-xs-12 col-md-4">
                 <img src="/assets/images/pres_engagements3.jpg" alt="eng_3" class="img-fluid">
             </div>
-        </div>
+        </div> -->
     </div>
  
     {% endblock %}

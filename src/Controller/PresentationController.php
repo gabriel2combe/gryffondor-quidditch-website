@@ -8,6 +8,7 @@
  */
 
 namespace Controller;
+use Model\PresentationManager;
 
 
 /**
@@ -24,7 +25,31 @@ class PresentationController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Presentation/presentation.html.twig');
+        $presentationManager = new PresentationManager();
+        $presentationInfo = $presentationManager->selectAll();
+
+        return $this->twig->render('Presentation/presentation.html.twig',
+            [
+                'presentationInfo' => $presentationInfo
+            ]
+        );
+    }
+
+    /**
+     * Display team listing
+     *
+     * @return string
+     */
+    public function edit()
+    {
+        $presentationManager = new PresentationManager();
+        $presentationInfo = $presentationManager->selectAll();
+
+        return $this->twig->render('Presentation/edit.html.twig',
+            [
+                'presentationInfo' => $presentationInfo
+            ]
+        );
     }
 
 }
