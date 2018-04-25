@@ -8,14 +8,14 @@
  */
 
 namespace Controller;
-use Model\AdminLoginManager;
+use Model\AdminManager;
 
 
 /**
- * Class AdminLoginController
+ * Class AdminController
  *
  */
-class AdminLoginController extends AbstractController
+class AdminController extends AbstractController
 {
 
     /**
@@ -26,7 +26,7 @@ class AdminLoginController extends AbstractController
     public function index()
     {
         if(!isset($_SESSION['admin'])) {
-            return $this->twig->render('AdminLogin/adminLogin.html.twig');
+            return $this->twig->render('Admin/admin.html.twig');
         }else{
             header('Location: /');
         }
@@ -41,7 +41,7 @@ class AdminLoginController extends AbstractController
     {
         $login = (isset($_POST['login'])) ? $_POST['login'] : "";
         $password = (isset($_POST['password'])) ? $_POST['password'] : "";
-        $adminLoginManager = new AdminLoginManager();
+        $adminLoginManager = new AdminManager();
         $adminLogin = $adminLoginManager->selectByName($login);
         if ($adminLogin) {
             if ($adminLogin->isGoodPassword($password)) {
@@ -52,7 +52,7 @@ class AdminLoginController extends AbstractController
                     ]
                 );
             } else {
-                return $this->twig->render('AdminLogin/adminLogin.html.twig',
+                return $this->twig->render('Admin/admin.html.twig',
                     [
                         'login' => $login,
                         'errorCode' => 'wrongPassword'
@@ -60,7 +60,7 @@ class AdminLoginController extends AbstractController
                 );
             }
         }else{
-            return $this->twig->render('AdminLogin/adminLogin.html.twig',
+            return $this->twig->render('Admin/admin.html.twig',
                 [
                     'login' => $login,
                     'errorCode' => 'wrongLogin'
