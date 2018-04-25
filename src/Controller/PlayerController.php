@@ -44,4 +44,41 @@ class PlayerController extends AbstractController
             ]
         );
     }
+
+    /**
+     * Player card editor
+     *
+     * @return string
+     */
+    public function edit($id)
+    {
+
+        if(!isset($_SESSION['admin'])){
+            header('Location: /team');
+        }
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+
+        $playerManager = new PlayerManager();
+
+        if(!empty($_POST)){
+            $id = $_POST['id'];
+            $data = [
+                'lastName' => $_POST['lastName'],
+                'firstName' => $_POST['firstName'],
+                'size' => $_POST['size'],
+            ];
+
+            $playerManager->update($id, $data);
+            header('Location: /team/edit-' . $id);
+        }
+        $player = $playerManager->selectOneById($id);
+
+        return $this->twig->render(
+            'Player/edit.html.twig',
+            [
+                'player' => $player,
+                'admin' => $admin
+            ]
+        );
+    }
 }
