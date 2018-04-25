@@ -31,7 +31,7 @@ svg
 {
 	font-family: 'Poiret One', cursive;
 	font-size: 1.4rem;
-	color: #cd900e;
+	color: /*#cd900e;*/ white;
 
 
 }
@@ -54,20 +54,22 @@ svg
 
 @media screen and (max-width: 1024px) 
 {
-  	.ul-home
-  	{
-	  	margin: auto;
-	  	width: 100%;
-  	}
 
-	  .ul-home > li
+}
+
+@media screen and (max-width: 767px)
+{
+
+	.ul-home
+	{
+		margin: auto;
+		width: 100%;
+	}
+
+	.ul-home > li
 	{
 		margin:auto;
 	}
-}
-
-@media screen and (max-width: 575px)
-{
 	#logo
 	{
 		width: 8vw;
@@ -86,7 +88,7 @@ svg
 
 	#navbarNav a
 	{
-		color: #cd900e;
+		color: white;
 	}
 
 	.fa-bars
