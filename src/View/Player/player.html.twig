@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block content %}
-    {{ parent() }}
 <div class="container-fluid">
 
     <div class="row d-flex justify-content-around">
@@ -20,6 +19,9 @@
 
         {% for gardien in gardiens %}
             <div class="custom-card">
+                {% if admin %}
+                <a href="/team/edit-{{ gardien.id }}" type="button" class="btn btn-success btn-admin">Modifier</a>
+                {% endif %}
                 <img class="custom-card-img" src="{{ gardien.picture }}" alt="Photo de {{ gardien.lastName }} {{ gardien.firstName }}">
                 <div class="custom-card-text">
                     {{ gardien.lastName }}<br/>
@@ -42,6 +44,9 @@
     <div class="row d-flex justify-content-around pt-2 pb-3">
         {% for poursuiveur in poursuiveurs %}
             <div class="custom-card">
+                {% if admin %}
+                    <a href="/team/edit-{{ poursuiveur.id }}" type="button" class="btn btn-success btn-admin">Modifier</a>
+                {% endif %}
                 <img class="custom-card-img" src="{{ poursuiveur.picture }}" alt="Photo de {{ poursuiveur.lastName }} {{ poursuiveur.firstName }}">
                 <div class="custom-card-text">
                     {{ poursuiveur.lastName }}<br/>
@@ -64,6 +69,9 @@
     <div class="row d-flex justify-content-around pt-2 pb-3">
         {% for batteur in batteurs %}
             <div class="custom-card">
+                {% if admin %}
+                    <a href="/team/edit-{{ batteur.id }}" type="button" class="btn btn-success btn-admin">Modifier</a>
+                {% endif %}
                 <img class="custom-card-img" src="{{ batteur.picture }}" alt="Photo de {{ batteur.lastName }} {{ batteur.firstName }}">
                 <div class="custom-card-text">
                     {{ batteur.lastName }}<br/>
@@ -86,6 +94,9 @@
     <div class="row d-flex justify-content-around pt-2 pb-3">
         {% for attrapeur in attrapeurs %}
             <div class="custom-card">
+                {% if admin %}
+                    <a href="/team/edit-{{ attrapeur.id }}" type="button" class="btn btn-success btn-admin">Modifier</a>
+                {% endif %}
                 <img class="custom-card-img" src="{{ attrapeur.picture }}" alt="Photo de {{ attrapeur.lastName }} {{ attrapeur.firstName }}">
                 <div class="custom-card-text">
                     {{ attrapeur.lastName }}<br/>

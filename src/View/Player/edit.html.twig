@@ -1,0 +1,65 @@
+{% extends 'Player/player.html.twig' %}
+
+{% block title %}Composition de l'équipe{% endblock %}
+{% block stylesheet %}
+{{ parent() }}
+{% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="card col-md-6 offset-md-3">
+        <div class="card-header">
+            <h1 class="mb-0 text-dark">Edition</h1>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <input hidden name="id" value="{{ player.id }}">
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input
+                            type="lastName"
+                            class="form-control"
+                            id="lastName"
+                            name="lastName"
+                            value="{{ player.lastName }}"
+                            placeholder="Entrez un nom"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input
+                            type="firstName"
+                            class="form-control"
+                            name="firstName"
+                            id="firstName"
+                            value="{{ player.firstName }}"
+                            placeholder="Entrez un prénom"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="size">Taille</label>
+                    <input
+                            type="size"
+                            class="form-control"
+                            name="size"
+                            id="size"
+                            value="{{ player.size }}"
+                            placeholder="Entrez la taille en cm"
+                    >
+                </div>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+                <a href="/team" type="button" class="btn btn-primary">Retour au site</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/player.js"></script>
+<script src="/assets/js/watchForHover.js"></script>
+{% endblock %}

@@ -10,10 +10,10 @@
 namespace Model;
 
 /**
- * Class AdminLogin
+ * Class Admin
  *
  */
-class AdminLogin
+class Admin
 {
     private $id;
     private $login;
@@ -31,9 +31,9 @@ class AdminLogin
     /**
      * @param int $id
      *
-     * @return AdminLogin
+     * @return Admin
      */
-    public function setId(int $id): AdminLogin
+    public function setId(int $id): Admin
     {
         $this->id = $id;
 
@@ -51,9 +51,9 @@ class AdminLogin
     /**
      * @param string $title
      *
-     * @return AdminLogin
+     * @return Admin
      */
-    public function setLogin(string $login): AdminLogin
+    public function setLogin(string $login): Admin
     {
         $this->login = $login;
 
