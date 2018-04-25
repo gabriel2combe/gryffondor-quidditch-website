@@ -79,6 +79,8 @@ class PlayerController extends AbstractController
                 $uploadFile = $uploadDir . $_POST['id'] . ".jpg";
                 move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile);
             }
+
+            header('Location: /team');
         }
         $player = $playerManager->selectOneById($id);
         $broomstickManager = new BroomstickManager();
