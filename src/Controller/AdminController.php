@@ -69,4 +69,15 @@ class AdminController extends AbstractController
         }
     }
 
+    /**
+     * Tries to logout
+     *
+     * @return string
+     */
+    public function logout()
+    {
+        unset($_SESSION['admin']);
+        header('Location: /');
+    }
+
 }

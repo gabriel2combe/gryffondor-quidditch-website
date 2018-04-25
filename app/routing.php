@@ -31,6 +31,7 @@ $routes = [
     'Admin' => [ // Controller
         ['index', '/admin', 'GET'], // action, url, method
         ['login', '/admin', 'POST'], // action, url, method
+        ['logout', '/logout', 'GET'], // action, url, method
     ],
 
 ];
