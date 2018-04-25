@@ -9,9 +9,9 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="card col-md-6 offset-md-3">
+    <div class="card col-md-6 offset-md-3 mb-5">
         <div class="card-header">
-            <h1 class="mb-0 text-dark">Edition</h1>
+            <h1 class="mb-0 text-dark">Modification joueur</h1>
         </div>
         <div class="card-body">
             <form method="post">
@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="lastName">Nom</label>
                     <input
-                            type="lastName"
+                            type="text"
                             class="form-control"
                             id="lastName"
                             name="lastName"
@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="firstName">Prénom</label>
                     <input
-                            type="firstName"
+                            type="text"
                             class="form-control"
                             name="firstName"
                             id="firstName"
@@ -41,13 +41,31 @@
                 <div class="form-group">
                     <label for="size">Taille</label>
                     <input
-                            type="size"
+                            type="text"
                             class="form-control"
                             name="size"
                             id="size"
                             value="{{ player.size }}"
                             placeholder="Entrez la taille en cm"
                     >
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Date de naissance</label>
+                    <input
+                            type="date"
+                            class="form-control"
+                            name="birthDate"
+                            id="birthDate"
+                            value="{{ player.birthDate }}"
+                    >
+                </div>
+                <div class="form-group">
+                    <h4 id="player-picture-title">Photo actuelle :</h4>
+                    <img id="player-picture" src="{{ player.picture }}">
+                </div>
+                <div class="form-group">
+                    <label for="picture">Changer de photo :</label>
+                    <input type="file" class="form-control-file" id="picture" onchange="readURL(this);">
                 </div>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
                 <a href="/team" type="button" class="btn btn-primary">Retour au site</a>
@@ -60,6 +78,6 @@
 
 {% block javascript %}
 {{ parent() }}
-<script src="/assets/js/player.js"></script>
+<script src="/assets/js/editPlayer.js"></script>
 <script src="/assets/js/watchForHover.js"></script>
 {% endblock %}

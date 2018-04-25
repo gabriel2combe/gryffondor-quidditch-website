@@ -109,6 +109,26 @@ class Player
     /**
      * @return string
      */
+    public function getBirthDate(): string
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * @param int $birthDate
+     *
+     * @return Player
+     */
+    public function setBirthDate(int $birthDate): Player
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getPicture(): string
     {
         return $this->picture;
