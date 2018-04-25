@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Calendrier{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="../assets/css/calendar.css">
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+
+
+      <div class="row title_calendar">
+          <h1>Calendrier</h1>
+      </div>
+
+    {% for game in games %}
+
+    <div class="container-fluid">
+        <div class="row ligne">
+
+
+        <div class="logo">
+            <p class="nameTeam">{{ game.nameTeam1 }}</p>
+            <img class="card-img-top" src="{{ game.logoTeam1 }}" alt="Logo équipe">
+        </div>
+
+
+        <div class="score">
+            <p>{{ game.score1 }}</p>
+        </div>
+
+    <div class="dateMatch d-flex justify-content-center">
+        <p class="text-center">
+            {{ game.getDate }}<br>
+            {{ game.getTime }}<br>
+
+        </p>
+    </div>
+
+        <div class="score">
+            <p>{{ game.score2 }}</p>
+        </div>
+
+
+            <div class="logo">
+                <p class="nameTeam">{{ game.nameTeam2 }}</p>
+                <img class="card-img-top" src="{{ game.logoTeam2 }}" alt="Logo équipe">
+            </div>
+
+
+        </div>
+        </div>
+
+    {% endfor %}
+
+
+
+{% endblock %}

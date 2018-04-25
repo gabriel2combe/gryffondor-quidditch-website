@@ -15,19 +15,32 @@
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" href="/assets/images/favicon.png">
-
-    {% block stylesheet %}<link rel="stylesheet" type="text/css" href="../assets/css/globalNavbar.css">{% endblock %}
+    
+    {% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href="../assets/css/globalNavbar.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+    {% endblock %}
 
 </head>
 
 <body>
 
- {% block navbar %}{% include 'navbar/navbar_fix.html.twig'%}{% endblock %}
- {% block content %}{% endblock %}
+ {% block navbar %}{% include 'Navbar/globalNavbar.html.twig'%}{% endblock %}
+ {% block content %}
+     {% if admin %}
+     <button type="button" class="btn btn-success" id="admin-button"><i class="fas fa-cogs"></i> Administration</button>
+     {% endif %}
+ {% endblock %}
 
 
 
 </body>
+
+<footer>
+
+ {% block footer %}{% include 'footer/footer.html.twig'%}{% endblock %}
+
+</footer>
 
 {% block javascript %}
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

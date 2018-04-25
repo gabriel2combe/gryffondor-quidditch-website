@@ -10,3 +10,11 @@ body {
 h1{
     font-family: 'Cinzel Decorative', cursive;
 }
+
+#admin-button {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    font-family: "DejaVu Sans";
+    z-index: 100;
+}
