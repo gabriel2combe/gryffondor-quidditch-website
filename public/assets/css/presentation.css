@@ -1,4 +1,4 @@
-body {
+.presentation body {
 
     background-color: #dbd5d4;
 
@@ -7,13 +7,13 @@ body {
 
 
 
-h1{
+.presentation h1{
     margin-top: 70px;
     margin-bottom: 100px;
     color: #d6ae1d;
 }
 
-h2 {
+.presentation h2 {
 
     font-family: 'Cinzel Decorative', cursive;
     margin-top: 300px;
@@ -25,7 +25,7 @@ h2 {
 
 
 
-p {
+.presentation p {
 
     background-color: #9e1607;
     padding: 20px;
@@ -34,28 +34,28 @@ p {
 
 }
 
-img.hat {
+.presentation img.hat {
     margin-left: 200px;
     height: 150px;
 
 }
 
-img.marmite {
+.presentation img.marmite {
     margin-left: 170px;
     height: 250px;
 }
 
-img.harry {
+.presentation img.harry {
     margin-left: 120px;
     height: 300px;
     height: 300px;
 
 }
 
-img.vif {
+.presentation img.vif {
     height: 100px;
 }
 
-.row {
+.presentation .row {
     margin-bottom: 100px;
 }
