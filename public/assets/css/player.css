@@ -3,6 +3,7 @@ body {
     /*background-color: #562b2b;*/
     background: url("../images/players/team_wallpaper.jpg") no-repeat fixed center;
     background-size: cover;
+    padding-top: 80px;
 }
 
 h1{
@@ -123,3 +124,10 @@ body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
 }
 
 /*****************************************************/
+
+.btn-admin
+{
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}

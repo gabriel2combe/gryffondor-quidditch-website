@@ -1,8 +1,7 @@
 .presentation body {
 
     background-color: #dbd5d4;
-
-
+    padding-top: 80px;
 }
 
 
@@ -34,28 +33,41 @@
 
 }
 
-.presentation img.hat {
-    margin-left: 200px;
-    height: 150px;
 
+.presentation img.icone {
+    height: 150px;
 }
 
-.presentation img.marmite {
-    margin-left: 170px;
-    height: 250px;
+
+.presentation img.vif {
+    height : 100px;
 }
 
 .presentation img.harry {
-    margin-left: 120px;
-    height: 300px;
-    height: 300px;
-
+    height : 300px;
+    margin-top : -60px;
 }
 
-.presentation img.vif {
-    height: 100px;
+
+.bloc h2 {
+    margin-top: 15%
+}
+
+
+.bloc {
+    display : flex;
+    flex-direction: row;
+}
+
+.row:nth-of-type(5n){
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 }
 
 .presentation .row {
     margin-bottom: 100px;
+}
+
+.row bloc {
+    flex
 }

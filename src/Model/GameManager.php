@@ -12,9 +12,9 @@ namespace Model;
 /**
  *
  */
-class PlayerManager extends AbstractManager
+class GameManager extends AbstractManager
 {
-    const TABLE = 'player';
+    const TABLE = 'game';
 
     /**
      *  Initializes this class.
@@ -27,22 +27,32 @@ class PlayerManager extends AbstractManager
     /**
      * Get rows from database by .
      *
-     * @param  int $position
-     *
      * @return array
      */
-    public function selectByPosition(int $position)
+    public function selectAllGames()
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("
-            SELECT $this->table.*, b.model AS broomstickModel, b.speed AS broomstickSpeed
-            FROM $this->table
-            INNER JOIN broomstick AS b ON b.id = idBroomstick
-            WHERE idPosition=:position");
+        SELECT 	g.id, 
+		g.dateTimeGame, 
+		t1.name AS nameTeam1, 
+        g.score1, 
+        t2.name AS nameTeam2,
+        g.score2, 
+        t1.image AS logoTeam1,
+        t2.image AS logoTeam2
+           FROM game
+           AS g 
+           JOIN team 
+           AS t1 
+           ON g.idTeam1 = t1.id 
+           JOIN team 
+           AS t2 
+           ON g.idTeam2 = t2.id
+
+");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
-        $statement->bindValue('position', $position, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
-
 }

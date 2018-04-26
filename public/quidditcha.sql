@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: quidditch
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.17.10.1
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,15 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `quidditch`
---
-
-DROP DATABASE IF EXISTS `quidditch`;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `quidditch` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `quidditch`;
 
 --
 -- Table structure for table `broomstick`
@@ -107,32 +98,6 @@ INSERT INTO `game` VALUES (1,'2017-11-04 15:00:00',1,170,2,60,1),(2,'2017-11-18 
 UNLOCK TABLES;
 
 --
--- Table structure for table `home`
---
-
-DROP TABLE IF EXISTS `home`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `home` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `picture` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `home`
---
-
-LOCK TABLES `home` WRITE;
-/*!40000 ALTER TABLE `home` DISABLE KEYS */;
-INSERT INTO `home` VALUES (1,'Histoire','Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sic munitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt, non sunt tamen ab earum spe causae diligendi profectae.',NULL),(2,'Valeurs','Quam quidem partem accusationis admiratus sum et moleste tuli potissimum esse Atratino datam. Neque enim decebat neque aetas illa postulabat neque, id quod animadvertere poteratis, pudor patiebatur optimi adulescentis in tali illum oratione versari. Vellem aliquis ex vobis robustioribus hunc male dicendi locum suscepisset; aliquanto liberius et fortius et magis more nostro refutaremus istam male dicendi licentiam. Tecum, Atratine, agam lenius, quod et pudor tuus moderatur orationi meae et meum erga te parentemque tuum beneficium tueri debeo.',NULL),(3,'Engagements','Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset, Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum, quae per multas difficilisque causas adfore iam sperabatur, non ut mos est principibus, quorum diffusa potestas localibus subinde medetur aerumnis, disponi quicquam statuit vel ex provinciis alimenta transferri conterminis, sed consularem Syriae Theophilum prope adstantem ultima metuenti multitudini dedit id adsidue replicando quod invito rectore nullus egere poterit victu.',NULL);
-/*!40000 ALTER TABLE `home` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `player`
 --
 
@@ -191,6 +156,35 @@ LOCK TABLES `position` WRITE;
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
 INSERT INTO `position` VALUES (1,'Poursuiveur'),(2,'Batteur'),(3,'Gardien'),(4,'Attrapeur');
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `presentation`
+--
+
+DROP TABLE IF EXISTS `presentation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `presentation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `picture1` varchar(255) DEFAULT NULL,
+  `picture2` varchar(255) NOT NULL,
+  `picture3` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `presentation`
+--
+
+LOCK TABLES `presentation` WRITE;
+/*!40000 ALTER TABLE `presentation` DISABLE KEYS */;
+INSERT INTO `presentation` VALUES (1,'Notre histoire','But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.','/assets/images/lieu_1.jpg','/assets/images/lieu_2.jpg','/assets/images/lieu_3.jpg','/assets/images/hat.png'),(2,'Nos valeurs','But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.','/assets/images/pres_valeurs.jpg','/assets/images/pres_valeurs2.jpg','/assets/images/pres_valeurs3.jpg','/assets/images/marmite.svg'),(3,'Nos engagements','But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.','/assets/images/pres_engagements.jpg','/assets/images/pres_engagements2.jpg','/assets/images/pres_engagements3.jpg','/assets/images/harryp.png');
+/*!40000 ALTER TABLE `presentation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -255,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-18 21:55:41
+-- Dump completed on 2018-04-25 12:07:45

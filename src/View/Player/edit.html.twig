@@ -1,0 +1,93 @@
+{% extends 'Player/player.html.twig' %}
+
+{% block title %}Composition de l'équipe{% endblock %}
+{% block stylesheet %}
+{{ parent() }}
+{% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="card col-md-6 offset-md-3 mb-5">
+        <div class="card-header">
+            <h1 class="mb-0 text-dark">Modification joueur</h1>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <input hidden name="id" value="{{ player.id }}">
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            name="lastName"
+                            value="{{ player.lastName }}"
+                            placeholder="Entrez un nom"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="firstName"
+                            id="firstName"
+                            value="{{ player.firstName }}"
+                            placeholder="Entrez un prénom"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="size">Taille</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            name="size"
+                            id="size"
+                            value="{{ player.size }}"
+                            placeholder="Entrez la taille en cm"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Date de naissance</label>
+                    <input
+                            type="date"
+                            class="form-control"
+                            name="birthDate"
+                            id="birthDate"
+                            value="{{ player.birthDate }}"
+                    >
+                </div>
+                <div class="form-group">
+                    <h4 id="player-picture-title">Photo actuelle :</h4>
+                    <img id="player-picture" src="{{ player.picture }}">
+                </div>
+                <div class="form-group">
+                    <label for="picture">Changer de photo :</label>
+                    <input type="file" name="picture" class="form-control-file" id="picture" onchange="readURL(this);">
+                </div>
+                <div class="form-group">
+                    <label for="broomstick">Balai</label>
+                    <select id="broomstick" name="idBroomstick">
+                        {% for broomstick in broomsticks %}
+                        <option value="{{ broomstick.id }}"
+                                {% if player.idBroomstick == broomstick.id %}selected="selected"{% endif %}
+                        >{{ broomstick.model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+                <a href="/team" type="button" class="btn btn-primary">Retour au site</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/editPlayer.js"></script>
+<script src="/assets/js/watchForHover.js"></script>
+{% endblock %}
