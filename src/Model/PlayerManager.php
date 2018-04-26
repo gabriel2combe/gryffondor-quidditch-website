@@ -44,4 +44,5 @@ class PlayerManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+
 }
