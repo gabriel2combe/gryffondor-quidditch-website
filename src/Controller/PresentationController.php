@@ -42,18 +42,31 @@ class PresentationController extends AbstractController
      *
      * @return string
      */
-    public function edit()
+    public function edit($id)
     {
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $presentationManager = new PresentationManager();
-        $presentationInfo = $presentationManager->selectAll();
 
-        return $this->twig->render('Presentation/edit.html.twig',
+        if (!empty($_POST)) {
+            $id = $_POST['id'];
+            $data = [
+                'title' => $_POST['title'],
+                'content' => $_POST['content'],
+            ];
+
+            $presentationManager->update($id, $data);
+            header('Location: /presentation');
+        }
+        $presentation = $presentationManager->selectOneById($id);
+
+        return $this->twig->render(
+            'Presentation/edit.html.twig',
             [
-                'presentationInfo' => $presentationInfo,
+                'presentation' => $presentation,
                 'admin' => $admin
             ]
         );
-    }
 
+
+    }
 }
