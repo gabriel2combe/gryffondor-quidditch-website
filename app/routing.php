@@ -15,12 +15,13 @@ $routes = [
     ],
     'Presentation' => [ // Controller
         ['index', '/presentation', 'GET'],
+        ['edit', '/presentation/edit-{id}', 'GET'],
+        ['edit', '/presentation/edit-{id}', 'POST'],
 
     ],
     'Player' => [ // Controller
         ['index', '/team', 'GET'], // action, url, method
-        ['edit', '/team/edit-{id:\d+}', 'GET'], // action, url, method
-        ['edit', '/team/edit-{id:\d+}', 'POST'], // action, url, method
+        ['edit', '/team/edit-{id:\d+}', ['GET','POST']], // action, url, method
     ],
     'Game' => [ // Controller
         ['index2', '/calendar', 'GET'], // action, url, method
