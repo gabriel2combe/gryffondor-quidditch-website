@@ -33,28 +33,43 @@ p {
 
 }
 
-img.hat {
-    margin-left: 200px;
+img.icone {
+
     height: 150px;
 
 }
 
-img.marmite {
-    margin-left: 170px;
-    height: 250px;
+img.vif {
+
+    height : 100px;
 }
 
 img.harry {
-    margin-left: 120px;
-    height: 300px;
-    height: 300px;
+
+    height : 300px;
+    margin-top : -60px;
+}
+
+.bloc h2 {
+    margin-top: 15%
+}
+
+
+.bloc {
+    display : flex;
+    flex-direction: row;
 
 }
 
-img.vif {
-    height: 100px;
+.row:nth-of-type(5n){
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 }
 
 .row {
     margin-bottom: 100px;
+}
+
+.row bloc {
+    flex
 }
