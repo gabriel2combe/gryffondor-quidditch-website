@@ -124,3 +124,10 @@ body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
 }
 
 /*****************************************************/
+
+.btn-admin
+{
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
