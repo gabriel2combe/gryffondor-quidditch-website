@@ -9,6 +9,7 @@
 
 namespace Controller;
 use Model\GameManager;
+use Model\TeamManager;
 
 
 /**
@@ -59,17 +60,44 @@ class GameController extends AbstractController
         );
     }
 
-    public function edit($id) //exemple !!!!!!!!!!!!!!!
+    public function edit($id)
     {
+
+        if(!isset($_SESSION['admin'])){
+            header('Location: /calendar');
+        }
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+
         $gameManager = new GameManager();
+
+        if(!empty($_POST))
+        {
+            $id = $_POST['id'];
+
+            $data =
+                [
+                    'idTeam1' => $_POST['idTeam1'],
+                    'idTeam2' => $_POST['idTeam2'],
+                    'score1' => $_POST['score1'],
+                    'score2' => $_POST['score2'],
+                    'dateTimeGame' => $_POST['dateTimeGame']
+            ];
+
+            $gameManager->update($id, $data);
+            header('Location: /calendar');
+        }
+
         $game = $gameManager->selectOneGameById($id);
+        $teamManager = new TeamManager();
+        $teams = $teamManager->selectAll();
 
         return $this->twig->render(
             'Calendar/editMatch.html.twig',
             [
                 'game' => $game,
-                'admin' => $admin
+                'teams' => $teams,
+                'admin' => $admin,
+                'id' => $id
             ]
         );
     }

@@ -51,7 +51,7 @@ class Team
      * @return string
      */
 
-    public function getNameTeam(): string
+    public function getName(): string
 
     {
         return $this->name;

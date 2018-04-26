@@ -10,8 +10,6 @@
 
   {% block content %}
 
-
-
 <div class="container-fluid">
     <div class="card col-md-6 offset-md-3">
         <div class="card-header">
@@ -22,12 +20,12 @@
                 <input hidden name="id" value="{{ game.id }}">
                 <div class="form-group">
                     <label for="nameTeam1">Equipe 1</label>
-                    <select name="nameTeam1" id="nameTeam1">
-
-
-
-                        {% for id in ids %}
-                            <option value="{{ team.id }}">{{ team.name }}</option>
+                    <select name="idTeam1" id="nameTeam1">
+                        {% for team in teams %}
+                            <option
+                                    value="{{ team.id }}"
+                                    {% if game.nameTeam1 == team.name %}selected="selected"{% endif %}
+                            >{{ team.name }}</option>
                         {% endfor %}
                     </select>
 
@@ -35,10 +33,12 @@
 
                 <div class="form-group">
                     <label for="nameTeam2">Equipe 2</label>
-                    <select name="nameTeam2" id="nameTeam2">
+                    <select name="idTeam2" id="nameTeam2">
 
-                        {% for teams in teams %}
-                            <option value="{{ team.id }}">{{ team.name }}</option>
+                        {% for team in teams %}
+                            <option value="{{ team.id }}"
+                                    {% if game.nameTeam2 == team.name %}selected="selected"{% endif %}
+                            >{{ team.name }}</option>
                         {% endfor %}
                     </select>
 
@@ -46,16 +46,28 @@
                 <div class="form-group">
                     <label for="">Score Equipe 1</label>
                     <input
-                            type="size"
+                            type="number"
                             class="form-control"
                             name="score1"
-                            id="size"
-                            value="{{ player.size }}"
-                            placeholder="Entrez la taille en cm"
-                    >
-                </div>
+                            id="score1"
+                            value="{{ game.score1 }}">
+                    <div class="form-group">
+                        <label for="">Score Equipe 2</label>
+                        <input
+                                type="number"
+                                class="form-control"
+                                name="score2"
+                                id="score1"
+                                value="{{ game.score2 }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateGame">Modifier la date et l'heure de la rencontre :</label>
+                        <input type="datetime-local" id="dateTimeGame" name="dateTimeGame" value="{{ game.dateTimeGame }}" placeholder="aaaa-mm-jj hh:mm">
+                    </div>
+
+
                 <button type="submit" class="btn btn-success">Enregistrer</button>
-                <a href="/team" type="button" class="btn btn-primary">Retour au site</a>
+                <a href="/calendar" type="button" class="btn btn-primary">Retour au site</a>
             </form>
         </div>
     </div>
