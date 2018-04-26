@@ -49,6 +49,7 @@ class GameManager extends AbstractManager
            JOIN team 
            AS t2 
            ON g.idTeam2 = t2.id
+           ORDER BY g.dateTimeGame
 
       ");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
