@@ -49,10 +49,44 @@ class GameManager extends AbstractManager
            JOIN team 
            AS t2 
            ON g.idTeam2 = t2.id
+           ORDER BY g.dateTimeGame
 
-");
+      ");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->execute();
         return $statement->fetchAll();
+    }
+
+    /**
+     * Get rows from database by .
+     *
+     * @return array
+     */
+    public function selectOneGameById($id)
+    {
+        // prepared request
+        $statement = $this->pdoConnection->prepare("
+        SELECT 	g.id, 
+		g.dateTimeGame, 
+		t1.name AS nameTeam1, 
+        g.score1, 
+        t2.name AS nameTeam2,
+        g.score2, 
+        t1.image AS logoTeam1,
+        t2.image AS logoTeam2
+           FROM game
+           AS g 
+           JOIN team 
+           AS t1 
+           ON g.idTeam1 = t1.id 
+           JOIN team 
+           AS t2 
+           ON g.idTeam2 = t2.id
+           WHERE g.id=$id
+
+      ");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        $statement->execute();
+        return $statement->fetch();
     }
 }
