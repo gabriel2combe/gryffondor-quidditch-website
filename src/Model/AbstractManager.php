@@ -69,7 +69,8 @@ abstract class AbstractManager
      */
     public function delete(int $id)
     {
-        //TODO : Implements SQL DELETE request
+        $delete = "DELETE FROM `game` WHERE `game`.`id` = $id";
+        return $this->pdoConnection->exec($delete);
     }
 
     public function insert(array $data)
