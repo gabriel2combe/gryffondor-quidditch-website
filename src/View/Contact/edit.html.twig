@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Nous contacter{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="../assets/css/contact.css">
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+        <div class="card col-md-6 offset-md-3">
+            <div class="card-header">
+                <h1 class="mb-0 text-dark">Edition</h1>
+            </div>
+            <div class="card-body">
+                <form method="post">
+
+                            <input hidden name="id" value="{{ contacts.0.id  }}">
+                            <div class="form-group">
+                                <label for="title">{{ contacts.0.title }}</label>
+                                <textarea
+                                        type="text"
+                                        class="form-control"
+                                        name="content"
+                                        id="content"
+                                        style="height: 8rem;"
+                                        placeholder="Entrez vos informations"
+                                >{{ contacts.0.content|raw }}</textarea>
+                            </div>
+
+                    <input hidden name="id" value="{{ contacts.1.id  }}">
+                    <div class="form-group">
+                        <label for="title">{{ contacts.1.title }}</label>
+                        <textarea
+                                type="text"
+                                class="form-control"
+                                name="content"
+                                id="content"
+                                style="height: 8rem;"
+                                placeholder="Entrez vos informations"
+                        >{{ contacts.1.content|raw }}</textarea>
+                    </div>
+
+                    <input hidden name="id" value="{{ contacts.2.id  }}">
+                    <div class="form-group">
+                        <label for="title">{{ contacts.2.title }}</label>
+                        <input
+                                type="email"
+                                required
+                                class="form-control"
+                                name="content"
+                                id="content"
+                                value = "{{ contacts.2.content|raw }}";
+                                placeholder="Entrez vos informations"
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <a href="/contact" type="button" class="btn btn-primary">Retour au site</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+

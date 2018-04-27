@@ -129,4 +129,51 @@ class ContactController extends AbstractController
         }
         header('location: /contact');
     }
+
+
+    /**
+     * Display successful page
+     *
+     * @return string
+     */
+    public function successful()
+    {
+        return $this->twig->render('Contact/successful.html.twig');
+    }
+
+    /**
+     * Contact editor
+     *
+     * @return string
+     */
+    public function edit()
+    {
+
+        if(!isset($_SESSION['admin'])){
+            header('Location: /contact');
+        }
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        $contactManager = new ContactManager();
+        if(!empty($_POST)){
+            $id = $_POST['id'];
+            $data = [
+                'content' => $_POST['content'],
+
+            ];
+            $contactManager->update($id, $data);
+            header('Location: /contact');
+        }
+        $contacts = $contactManager->selectAll();
+
+        return $this->twig->render(
+            'Contact/edit.html.twig',
+            [
+                'contacts' => $contacts,
+                'admin' => $admin
+            ]
+        );
+
+    }
+
+
 }
