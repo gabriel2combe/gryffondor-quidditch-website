@@ -72,6 +72,25 @@ textarea{
     height: 15rem;
 }
 
+.green-borders-bottom{
+    border-bottom: green solid 3px;
+    border-left: green solid 3px;
+    border-right: green solid 3px;
+    margin-top: 0!important;
+}
+.green-borders-top{
+    border-top: green solid 3px;
+    border-left: green solid 3px;
+    border-right: green solid 3px;
+    margin-bottom: 0!important;
+}
+
+.btn-modify{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: ;
+}
 
 @media (max-width:992px) {
 
