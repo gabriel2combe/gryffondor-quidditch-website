@@ -74,7 +74,19 @@ abstract class AbstractManager
 
     public function insert(array $data)
     {
-        //TODO : Implements SQL INSERT request
+        foreach ($data as $key => $value){
+            if (!empty($value)) {
+                $data[$key] = '\'' . $value . '\'';
+            }else{
+                $data[$key] = 'NULL';
+            }
+        }
+        $sqlFields = implode(', ', array_keys($data));
+        $sqlValues = implode(', ', $data);
+        // prepared request
+        echo "INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)";
+        $statement = $this->pdoConnection->prepare("INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)");
+        $statement->execute();
     }
     /**
      * @param int   $id   Id of the row to update

@@ -25,6 +25,9 @@ $routes = [
     ],
     'Game' => [ // Controller
         ['index2', '/calendar', 'GET'], // action, url, method
+        ['add', '/calendar/add', ['GET','POST']], // action, url, method
+        ['edit', '/calendar/edit-{id:\d+}', ['GET','POST']], // action, url, method
+
     ],
     'Contact' => [ // Controller
         ['index', '/contact', 'GET'], // action, url, method
