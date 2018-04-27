@@ -44,29 +44,39 @@ class AdminController extends AbstractController
         $adminLoginManager = new AdminManager();
         $adminLogin = $adminLoginManager->selectByName($login);
         if ($adminLogin) {
-            if ($adminLogin->isGoodPassword($password)) {
-                $_SESSION['admin'] = $login;
-                return $this->twig->render('Home/home.html.twig',
-                    [
-                        'admin' => $login
-                    ]
-                );
-            } else {
-                return $this->twig->render('Admin/admin.html.twig',
-                    [
-                        'login' => $login,
-                        'errorCode' => 'wrongPassword'
-                    ]
-                );
+            $id = $adminLogin->getId();
+            if (!$adminLogin->isLocked()) {
+                if ($adminLogin->isGoodPassword($password)) {
+                    $_SESSION['admin'] = $login;
+                    $data = [
+                        'failedTry' => 0
+                    ];
+                    $adminLoginManager->update($id, $data);
+                    return $this->twig->render('Home/home.html.twig',
+                        [
+                            'admin' => $login
+                        ]
+                    );
+                } else {
+                    $errorCode = $adminLogin->wrongPassword();
+                    $data = [
+                        'failedTry' => $adminLogin->getFailedTry(),
+                        'lockedUntil' => $adminLogin->getLockedUntil()
+                    ];
+                    $adminLoginManager->update($id, $data);
+                }
+            }else{
+                $errorCode = "Votre compte est actuellement verrouillé. Veuillez tenter à nouveau plus tard";
             }
         }else{
-            return $this->twig->render('Admin/admin.html.twig',
-                [
-                    'login' => $login,
-                    'errorCode' => 'wrongLogin'
-                ]
-            );
+            $errorCode = "Identifiant inconnu";
         }
+        return $this->twig->render('Admin/admin.html.twig',
+            [
+                'login' => $login,
+                'errorCode' => $errorCode
+            ]
+        );
     }
 
     /**
