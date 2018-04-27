@@ -27,7 +27,7 @@
                 <img class="icone" src="{{ info.logo }}">
             </div>
             <div class="col-12 col-md-6">
-                <p>{{ info.content }}</p>
+                {{ info.content|raw }}
                 {% if admin %}
                 <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
                 {% endif %}

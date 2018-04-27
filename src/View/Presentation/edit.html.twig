@@ -69,5 +69,11 @@
 {% block javascript %}
 {{ parent() }}
 <script src="/assets/js/editPresentation.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#content'
+    });
+</script>
 {% endblock %}
  

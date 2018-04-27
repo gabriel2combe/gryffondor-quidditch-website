@@ -68,9 +68,10 @@
     margin-bottom: 100px;
 }
 
-.row bloc {
-    flex
+textarea{
+    height: 15rem;
 }
+
 
 @media (max-width:992px) {
 
