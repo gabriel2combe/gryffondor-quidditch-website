@@ -55,6 +55,22 @@ class PresentationController extends AbstractController
             ];
 
             $presentationManager->update($id, $data);
+
+            //mofifier les photos
+            $uploadDir = 'assets/images/presentation/';
+            if(isset($_FILES['picture1'])){
+                $uploadFile = $uploadDir . $_POST['id'] . "1.jpg";
+                move_uploaded_file($_FILES['picture1']['tmp_name'], $uploadFile);
+            }
+            if(isset($_FILES['picture2'])){
+                $uploadFile = $uploadDir . $_POST['id'] . "2.jpg";
+                move_uploaded_file($_FILES['picture2']['tmp_name'], $uploadFile);
+            }
+            if(isset($_FILES['picture3'])){
+                $uploadFile = $uploadDir . $_POST['id'] . "3.jpg";
+                move_uploaded_file($_FILES['picture3']['tmp_name'], $uploadFile);
+            }
+
             header('Location: /presentation');
         }
         $presentation = $presentationManager->selectOneById($id);

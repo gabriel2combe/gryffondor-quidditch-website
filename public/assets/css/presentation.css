@@ -73,3 +73,21 @@ img.harry {
 .row bloc {
     flex
 }
+
+@media (max-width:992px) {
+
+     .row {
+         margin-bottom: 10px;
+     }
+
+     h1 {
+         margin-top: 20px;
+         margin-bottom: 20px;
+     }
+
+     .miniature {
+         margin-bottom: 10px;
+
+     }
+
+}

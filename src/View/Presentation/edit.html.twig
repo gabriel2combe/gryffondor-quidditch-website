@@ -12,7 +12,7 @@
                 <h1 class="mb-0 text-dark">Edition</h1>
             </div>
             <div class="card-body">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     <input hidden name="id" value="{{ presentation.id }}">
                     <div class="form-group">
                         <label for="title">Titre</label>
@@ -35,37 +35,28 @@
                         >{{ presentation.content }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="picture1">Image 1</label>
-                        <input
-                                type="picture1"
-                                class="form-control"
-                                name="picture1"
-                                id="picture1"
-                                value="{{ player.picture1 }}"
-                                placeholder=""
-                        >
+                        <h4 id="picture1-title">Photo n°1 actuelle :</h4>
+                        <img src="{{ presentation.picture1 }}" alt="Picture 1" id="picture1-pic">
                     </div>
                     <div class="form-group">
-                        <label for="picture2">Image 2</label>
-                        <input
-                                type="picture2"
-                                class="form-control"
-                                name="picture2"
-                                id="picture2"
-                                value="{{ player.picture2 }}"
-                                placeholder=""
-                        >
+                        <label for="picture1">Changer photo n°1</label>
+                        <input type="file" name="picture1" class="form-control-file" id="picture1" onchange="readURL1(this);">
                     </div>
                     <div class="form-group">
-                        <label for="picture1">Image 3</label>
-                        <input
-                                type="picture3"
-                                class="form-control"
-                                name="picture3"
-                                id="picture3"
-                                value="{{ player.picture3 }}"
-                                placeholder=""
-                        >
+                        <h4 id="picture2-title">Photo n°2 actuelle :</h4>
+                        <img src="{{ presentation.picture2 }}" alt="Picture 2" id="picture2-pic">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture2">Changer photo n°2</label>
+                        <input type="file" name="picture2" class="form-control-file" id="picture2" onchange="readURL2(this);">
+                    </div>
+                    <div class="form-group">
+                        <h4 id="picture3-title">Photo n°3 actuelle :</h4>
+                        <img src="{{ presentation.picture3 }}" alt="Picture 3" id="picture3-pic">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture3">Changer photo n°3</label>
+                        <input type="file" name="picture3" class="form-control-file" id="picture3" onchange="readURL3(this);">
                     </div>
                     <button type="submit" class="btn btn-success">Enregistrer</button>
                     <a href="/presentation" type="button" class="btn btn-primary">Retour au site</a>
@@ -75,4 +66,8 @@
     </div>
 {% endblock %}
 {% block footer %}{% endblock %}
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/editPresentation.js"></script>
+{% endblock %}
  
