@@ -11,14 +11,9 @@
                             <div class="card-header">
                                 <h3 class="mb-0">Connection</h3>
                             </div>
-                            {% if errorCode == "wrongPassword" %}
+                            {% if errorCode != "" %}
                                 <div class="alert alert-danger" role="alert">
-                                    Mot de passe incorrect.
-                                </div>
-                            {% endif %}
-                            {% if errorCode == "wrongLogin" %}
-                                <div class="alert alert-danger" role="alert">
-                                    Identifiant inconnu.
+                                    {{ errorCode }}
                                 </div>
                             {% endif %}
                             <div class="card-body">
