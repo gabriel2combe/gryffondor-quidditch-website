@@ -15,106 +15,37 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <img id="groupe" src="/assets/images/gryf-team-big.jpg" class="img-fluid">
+                <img src="/assets/images/presentation/gryf-team-big.jpg" class="img-fluid">
             </div>
         </div>
 
         {% for info in presentationInfo %}
 
-        <div class="row bloc">
+        <div class="row bloc {% if admin %}green-borders-top{% endif %}">
             <div class="col-12 col-md-6 text-center align-middle">
+                {% if admin %}
+                    <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success btn-modify">Modifier</a>
+                {% endif %}
                 <h2>{{ info.title }}</h2>
                 <img class="icone" src="{{ info.logo }}">
             </div>
             <div class="col-12 col-md-6">
-                <p>{{ info.content }}</p>
-                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+                {{ info.content|raw }}
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <img src="{{ info.picture1 }}" alt="{{ info.title }} - Illustration 1" class="img-fluid">
-                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+        <div class="row {% if admin %}green-borders-bottom{% endif %}"">
+            <div class="col-xs-12 col-md-4 text-center">
+                <img src="{{ info.picture1 }}" alt="{{ info.title }} - Illustration 1" class="img-fluid miniature">
             </div>
             <div class="col-xs-12 col-md-4">
-                <img src="{{ info.picture2 }}" alt="{{ info.title }} - Illustration 2" class="img-fluid">
-                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+                <img  src="{{ info.picture2 }}" alt="{{ info.title }} - Illustration 2" class="img-fluid miniature">
             </div>
             <div class="col-xs-12 col-md-4">
-                <img src="{{ info.picture3 }}" alt="{{ info.title }} - Illustration 3" class="img-fluid">
-                <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success">Modifier</a>
+                <img  src="{{ info.picture3 }}" alt="{{ info.title }} - Illustration 3" class="img-fluid miniature">
             </div>
         </div>
 
         {% endfor %}
-
-
-
-<!--
-        <div class="row">
-            <div class="col-12 col-md-6 text-center">
-                <h2>Notre histoire</h2>
-                <img class="icone" src="/assets/images/hat.png">
-            </div>
-            <div class="col-12 col-md-6">
-                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.<br> Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/lieu_1.jpg" alt="lieu_1" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/lieu_2.jpg" alt="lieu_2" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/lieu_3.jpg" alt="lieu_3" class="img-fluid">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.<br> Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-                </p>
-            </div>
-            <div class="col-12 col-md-6 text-center">
-                <h2>Nos valeurs</h2>
-                <img class="icone" src="/assets/images/marmite.svg">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_valeurs.jpg" alt="valeur_1" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_valeurs2.jpg" alt="valeur_2" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_valeurs3.jpg" alt="valeur_3" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6 text-center">
-                <h2>Nos engagements</h2>
-                <img class="harry" src="/assets/images/harryp.png">
-            </div>
-            <div class="col-12 col-md-6">
-                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.<br> Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_engagements.jpg" alt="eng_1" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_engagements2.jpg" alt="eng_2" class="img-fluid">
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <img src="/assets/images/pres_engagements3.jpg" alt="eng_3" class="img-fluid">
-            </div>
-        </div> -->
     </div>
  
     {% endblock %}

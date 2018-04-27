@@ -15,8 +15,8 @@ $routes = [
     ],
     'Presentation' => [ // Controller
         ['index', '/presentation', 'GET'],
-        ['edit', '/presentation/edit-{id}', 'GET'],
-        ['edit', '/presentation/edit-{id}', 'POST'],
+        ['edit', '/presentation/edit-{id:\d+}', ['GET', 'POST']],
+
 
     ],
     'Player' => [ // Controller
