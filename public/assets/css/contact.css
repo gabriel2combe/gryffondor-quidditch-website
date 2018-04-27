@@ -20,6 +20,10 @@ header {
     margin-bottom: 30px;
 }
 
+.border-admin{
+    border: solid 3px green;
+}
+
 h2{
     font-family: 'Cinzel Decorative', cursive;
     color: #D6AE1D;

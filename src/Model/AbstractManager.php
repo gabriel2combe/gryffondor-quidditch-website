@@ -69,21 +69,26 @@ abstract class AbstractManager
      */
     public function delete(int $id)
     {
-        //TODO : Implements SQL DELETE request
+        $delete = "DELETE FROM `game` WHERE `game`.`id` = $id";
+        return $this->pdoConnection->exec($delete);
     }
 
-
-    /**
-     * INSERT one row in dataase
-     *
-     * @param Array $data
-     */
     public function insert(array $data)
     {
-        //TODO : Implements SQL INSERT request
+        foreach ($data as $key => $value){
+            if (!empty($value)) {
+                $data[$key] = '\'' . $value . '\'';
+            }else{
+                $data[$key] = 'NULL';
+            }
+        }
+        $sqlFields = implode(', ', array_keys($data));
+        $sqlValues = implode(', ', $data);
+        // prepared request
+        echo "INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)";
+        $statement = $this->pdoConnection->prepare("INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)");
+        $statement->execute();
     }
-
-
     /**
      * @param int   $id   Id of the row to update
      * @param array $data $data to update

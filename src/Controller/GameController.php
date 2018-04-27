@@ -39,26 +39,7 @@ class GameController extends AbstractController
         );
     }
 
-    /**
-     * Display calendar listing
-     *
-     * @return string
-     */
 
-    public function add() //exemple !!!!!!!!!!!!!!!
-    {
-        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
-        $gameManager = new GameManager();
-        $games = $gameManager->selectAllGames();
-
-        return $this->twig->render(
-            'Calendar/add.html.twig',
-            [
-                'games' => $games,
-                'admin' => $admin
-            ]
-        );
-    }
 
     public function edit($id)
     {
@@ -72,14 +53,16 @@ class GameController extends AbstractController
 
         if(!empty($_POST))
         {
-            $id = $_POST['id'];
+            $score1 = (empty($_POST['score1'])) ? 0 : $_POST['score1'];
+            $score2 = (empty($_POST['score2'])) ? 0 : $_POST['score2'];
 
+            $id = $_POST['id'];
             $data =
                 [
                     'idTeam1' => $_POST['idTeam1'],
                     'idTeam2' => $_POST['idTeam2'],
-                    'score1' => $_POST['score1'],
-                    'score2' => $_POST['score2'],
+                    'score1' => $score1,
+                    'score2' => $score2,
                     'dateTimeGame' => $_POST['dateTimeGame']
             ];
 
@@ -101,6 +84,69 @@ class GameController extends AbstractController
             ]
         );
     }
+
+
+
+
+
+
+    /**
+     * Add a match
+     *
+     * @return string
+     */
+
+    public function add()
+    {
+        if(!isset($_SESSION['admin'])){
+            header('Location: /calendar');
+        }
+        $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+
+        if(!empty($_POST))
+        {
+
+            $score1 = (empty($_POST['score1'])) ? 0 : $_POST['score1'];
+            $score2 = (empty($_POST['score2'])) ? 0 : $_POST['score2'];
+
+            $data =
+                [
+                    'idTeam1' => $_POST['idTeam1'],
+                    'idTeam2' => $_POST['idTeam2'],
+                    'score1' => $score1,
+                    'score2' => $score2,
+                    'dateTimeGame' => $_POST['dateTimeGame']
+                ];
+            $gameManager = new GameManager();
+            $gameManager->insert($data);
+            header('Location: /calendar');
+        }
+
+
+        $teamManager = new TeamManager();
+        $teams = $teamManager->selectAll();
+
+        return $this->twig->render(
+            'Calendar/add.html.twig',
+            [
+                'admin' => $admin,
+                'teams' => $teams
+            ]
+        );
+    }
+
+    public function delete($id)
+    {
+        if(!isset($_SESSION['admin'])){
+            header('Location: /calendar');
+        }
+
+            $gameManager = new GameManager();
+            $gameManager->delete($id);
+            header('Location: /calendar');
+
+    }
+
 
 
 }
