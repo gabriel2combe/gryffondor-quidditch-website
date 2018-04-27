@@ -15,7 +15,7 @@
 {% if admin %}
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <a href="calendar/add" type="button" class="btn btn-info"><i class="fas fa-plus-circle"></i>
+            <a href="calendar/add" type="button" class="btn btn-primary" style="font-family: 'DejaVu Sans'";><i class="fas fa-plus-circle"></i>
 
                 Ajouter un Match</a>
         </div>
@@ -33,7 +33,7 @@
             <div class="match_banner">
                 <div class=" d-flex date_box justify-content-center">
                     {% if admin %}
-                        <a href="/calendar/edit-{{ game.id }}" type="button" class="btn btn-success m-1 boutedit"><i class="fas fa-wrench"></i>
+                        <a href="/calendar/edit-{{ game.id }}" type="button"  style="font-family: 'DejaVu Sans'"; class="btn btn-success m-1 boutedit"><i class="fas fa-wrench"></i>
 
                             Editer le Match</a>
                         <!--<a href="/calendar/delete-{#{{ game.id }}#}" type="button" class="btn "></button></a>-->
@@ -46,6 +46,7 @@
                                 id="delete-button"
                                 data-toggle="modal"
                                 data-target="#delete"
+                                style="font-family: 'DejaVu Sans'";
                         ><i class="far fa-times-circle"></i>
 
                         Supprimer le match </button>
@@ -55,20 +56,22 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="adminControlPannelTitle">Etes vous sûr de vouloir supprimer le match ?</h5>
+                                        <h5 class="modal-title" id="adminControlPannelTitle" style="font-family: 'DejaVu Sans'";
+                                        >Etes vous sûr de vouloir supprimer le match ?</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
 
-                                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger">
+                                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'";
+                                        >
                                             <i class="far fa-trash-alt"></i> Supprimer</a>
-                                        <a href="" type="button" class="btn btn-info"  data-dismiss="modal" aria-label="Close">Annuler</a>
+                                        <a href="" type="button" class="btn btn-primary"  data-dismiss="modal" aria-label="Close" style="font-family: 'DejaVu Sans'";
+                                        >Annuler</a>
 
                                     </div>
                                     <div class="modal-body">
-
 
                                     </div>
                                 </div>
