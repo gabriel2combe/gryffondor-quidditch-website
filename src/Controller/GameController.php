@@ -129,6 +129,18 @@ class GameController extends AbstractController
         );
     }
 
+    public function delete($id)
+    {
+        if(!isset($_SESSION['admin'])){
+            header('Location: /calendar');
+        }
+
+            $gameManager = new GameManager();
+            $gameManager->delete($id);
+            header('Location: /calendar');
+
+    }
+
 
 
 }
