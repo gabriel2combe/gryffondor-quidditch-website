@@ -39,8 +39,9 @@
                         <!--<a href="/calendar/delete-{#{{ game.id }}#}" type="button" class="btn "></button></a>-->
 
 
-
-                        <button
+                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel" style="font-family: 'DejaVu Sans'";
+                        ><i class="far fa-trash-alt"></i> Supprimer</a>
+                        <!--<button
                                 type="button"
                                 class="btn btn-success btn-danger m-1 boutdel"
                                 id="delete-button"
@@ -51,7 +52,7 @@
 
                         Supprimer le match </button>
 
-                        <!-- Modal -->
+
                         <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -65,8 +66,7 @@
                                     <div class="modal-body">
 
                                         <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'";
-                                        >
-                                            <i class="far fa-trash-alt"></i> Supprimer</a>
+                                        ><i class="far fa-trash-alt"></i> Supprimer</a>
                                         <a href="" type="button" class="btn btn-primary"  data-dismiss="modal" aria-label="Close" style="font-family: 'DejaVu Sans'";
                                         >Annuler</a>
 
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
                     {% endif %}
                     <p class="dateMatch text-center">
