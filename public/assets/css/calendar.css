@@ -24,8 +24,35 @@
     font-family: 'DejaVu Sans';
 }
 
+/*choix des saisons*/
 
+.seasonbox
+{
+    display: flex;
+    flex-direction: row;
+    margin-left: 13vw;
 
+}
+
+.seasonselect
+{
+/*
+    font-family: 'Cinzel Decorative', cursive;
+    height: 10vw;
+    font-size: 5vw;
+    background : none;
+    border: none;
+    color: #480405;
+    font-weight: bold;
+    margin-top: -1.5%;
+    margin-left: 5%;
+*/
+    height: 40px;
+    background-color: #333333;
+    color: #EEEEEE;
+    font-size: 20px;
+
+}
 
 /***********placement et styles des vignettes matchs********/
 
@@ -68,10 +95,6 @@
     justify-content: center;
     background: #333333;
 }
-
-/*style du box logo*/
-
-
 
 /*style et placement des scores*/
 .score
@@ -145,7 +168,7 @@ card-img-top
         margin-bottom: 10%;
         justify-content: center;
         color: #cd900e;
-        font-size: 5vw;
+        font-size: 10vw;
         font-weight: bold;
     }
 

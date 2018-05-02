@@ -53,7 +53,8 @@ class ContactController extends AbstractController
                 'subject' => $subject,
                 'error' => $error,
                 'sendEmail' => $sendEmail,
-                'admin' => $admin
+                'admin' => $admin,
+                'thisSeason' => SEASON
             ]
         );
     }

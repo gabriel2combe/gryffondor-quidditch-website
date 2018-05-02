@@ -54,7 +54,7 @@ class AdminController extends AbstractController
                     $adminLoginManager->update($id, $data);
                     return $this->twig->render('Home/home.html.twig',
                         [
-                            'admin' => $login
+                            'admin' => $login,
                         ]
                     );
                 } else {

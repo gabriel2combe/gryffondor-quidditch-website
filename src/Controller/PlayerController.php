@@ -41,7 +41,8 @@ class PlayerController extends AbstractController
                 'attrapeurs' => $attrapeurs,
                 'poursuiveurs' => $poursuiveurs,
                 'batteurs' => $batteurs,
-                'admin' => $admin
+                'admin' => $admin,
+                'thisSeason' => SEASON
             ]
         );
     }
@@ -85,7 +86,6 @@ class PlayerController extends AbstractController
         $player = $playerManager->selectOneById($id);
         $broomstickManager = new BroomstickManager();
         $broomsticks = $broomstickManager->selectAll();
-
 
         return $this->twig->render(
             'Player/edit.html.twig',
