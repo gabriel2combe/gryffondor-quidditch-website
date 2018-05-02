@@ -26,6 +26,7 @@
 <body>
 
  {% block navbar %}{% include 'Navbar/globalNavbar.html.twig'%}{% endblock %}
+ {% block alert %}{% endblock %}
  {% block adminButton %}
      {% if admin %}
          <button
@@ -46,7 +47,8 @@
                              <span aria-hidden="true">&times;</span>
                          </button>
                      </div>
-                     <div class="modal-body">
+                     <div class="modal-body d-flex">
+                         <a href="/password-change" type="button" class="btn btn-success"><i class="fas fa-edit"></i> Changer mot de passe</a>
                          <a href="/logout" type="button" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                      </div>
                  </div>

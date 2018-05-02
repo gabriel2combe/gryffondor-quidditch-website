@@ -130,4 +130,5 @@ body.hasHover .custom-card:hover .custom-card-text, .clicked .custom-card-text
     position: absolute;
     top: 0;
     z-index: 20;
+    font-family: "DejaVu Sans";
 }

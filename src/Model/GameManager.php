@@ -105,6 +105,7 @@ class GameManager extends AbstractManager
       CONCAT(YEAR(`dateTimeGame`),\"-\",YEAR(`dateTimeGame`)+1)) 
       AS season 
       FROM `game`
+      ORDER BY season ASC
 
       ");
         $statement->setFetchMode(\PDO::FETCH_BOTH);
