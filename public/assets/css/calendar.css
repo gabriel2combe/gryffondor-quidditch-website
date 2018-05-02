@@ -18,9 +18,10 @@
 /*      ADMIN          */
 /***********************/
 
-.boutedit, .boutdel
+.boutajout, .boutedit, .boutdel
 {
     margin: 4px;
+    font-family: 'DejaVu Sans';
 }
 
 /*choix des saisons*/
