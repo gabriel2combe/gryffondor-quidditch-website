@@ -24,7 +24,7 @@ $routes = [
         ['edit', '/team/edit-{id:\d+}', ['GET','POST']], // action, url, method
     ],
     'Game' => [ // Controller
-        ['index2', '/calendar-{season:\d+-\d+}', 'GET'], // action, url, method
+        ['index', '/calendar-{season:\d+-\d+}', 'GET'], // action, url, method
         ['add', '/calendar/add', ['GET','POST']], // action, url, method
         ['edit', '/calendar/edit-{id:\d+}', ['GET','POST']], // action, url, method
         ['delete', '/calendar/delete-{id:\d+}', ['GET', 'POST']], // action, url, method
