@@ -27,65 +27,23 @@
     {% for game in games %}
 
 
-
     <div class="container">
         <div class="row ligne">
             <div class="match_banner">
                 <div class=" d-flex date_box justify-content-center">
                     {% if admin %}
-                        <a href="/calendar/edit-{{ game.id }}" type="button"  style="font-family: 'DejaVu Sans'"; class="btn btn-success m-1 boutedit"><i class="fas fa-wrench"></i>
+                        <a href="/calendar/edit-{{ game.id }}" type="button"  style="font-family: 'DejaVu Sans'"; class="btn btn-success m-1 boutedit">
+                            <i class="fas fa-wrench"></i>Editer le Match</a>
 
-                            Editer le Match</a>
-                        <!--<a href="/calendar/delete-{#{{ game.id }}#}" type="button" class="btn "></button></a>-->
-
-
-                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel" style="font-family: 'DejaVu Sans'";
-                        ><i class="far fa-trash-alt"></i> Supprimer</a>
-                        <!--<button
-                                type="button"
-                                class="btn btn-success btn-danger m-1 boutdel"
-                                id="delete-button"
-                                data-toggle="modal"
-                                data-target="#delete"
-                                style="font-family: 'DejaVu Sans'";
-                        ><i class="far fa-times-circle"></i>
-
-                        Supprimer le match </button>
-
-
-                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="adminControlPannelTitle" style="font-family: 'DejaVu Sans'";
-                                        >Etes vous sûr de vouloir supprimer le match ?</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'";
-                                        ><i class="far fa-trash-alt"></i> Supprimer</a>
-                                        <a href="" type="button" class="btn btn-primary"  data-dismiss="modal" aria-label="Close" style="font-family: 'DejaVu Sans'";
-                                        >Annuler</a>
-
-                                    </div>
-                                    <div class="modal-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
+                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel">
+                            <i class="far fa-trash-alt"></i> Supprimer</a>
 
                     {% endif %}
+
                     <p class="dateMatch text-center">
                         {{ game.getDate }}<br>
                         {{ game.getTime }}<br>
-
-
                     </p>
-
 
                 </div>
 
@@ -125,5 +83,23 @@
     {% endfor %}
 
 
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+
+<script>
+    $('.boutdel').on('click', confirmationDelete);
+
+    function confirmationDelete(evt)
+    {
+        evt.preventDefault();
+        let conf = confirm('Voulez-vous vraiment supprimer ce match ?');
+        if(conf)
+            window.location=evt.currentTarget.attr("href");
+    }
+</script>
 
 {% endblock %}
+
+
