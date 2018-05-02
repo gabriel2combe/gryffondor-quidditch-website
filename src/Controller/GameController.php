@@ -25,7 +25,7 @@ class GameController extends AbstractController
      * @return string
      */
 
-    public function index2($season) //exemple !!!!!!!!!!!!!!!
+    public function season($season)
     {
 
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
