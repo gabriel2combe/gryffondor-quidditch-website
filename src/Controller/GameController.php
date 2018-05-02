@@ -17,6 +17,7 @@ use Model\TeamManager;
  */
 class GameController extends AbstractController
 {
+    
 
     /**
      * Display calendar listing
@@ -24,17 +25,22 @@ class GameController extends AbstractController
      * @return string
      */
 
-    public function index2() //exemple !!!!!!!!!!!!!!!
+    public function index2($season) //exemple !!!!!!!!!!!!!!!
     {
+
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $gameManager = new GameManager();
-        $games = $gameManager->selectAllGames();
+        $games = $gameManager->selectBySeason($season);
+        $seasons = $gameManager->getSeasonsList();
+
 
         return $this->twig->render(
             'Calendar/calendar.html.twig',
             [
                 'games' => $games,
-                'admin' => $admin
+                'admin' => $admin,
+                'seasons' => $seasons,
+                'currentSeason' => $season
             ]
         );
     }
@@ -45,7 +51,7 @@ class GameController extends AbstractController
     {
 
         if(!isset($_SESSION['admin'])){
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
         }
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
 
@@ -67,7 +73,7 @@ class GameController extends AbstractController
             ];
 
             $gameManager->update($id, $data);
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
         }
 
         $game = $gameManager->selectOneGameById($id);
@@ -99,7 +105,7 @@ class GameController extends AbstractController
     public function add()
     {
         if(!isset($_SESSION['admin'])){
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
         }
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
 
@@ -119,7 +125,7 @@ class GameController extends AbstractController
                 ];
             $gameManager = new GameManager();
             $gameManager->insert($data);
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
         }
 
 
@@ -138,15 +144,14 @@ class GameController extends AbstractController
     public function delete($id)
     {
         if(!isset($_SESSION['admin'])){
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
         }
 
             $gameManager = new GameManager();
             $gameManager->delete($id);
-            header('Location: /calendar');
+            header('Location: /calendar-'.SEASON);
 
     }
-
 
 
 }
