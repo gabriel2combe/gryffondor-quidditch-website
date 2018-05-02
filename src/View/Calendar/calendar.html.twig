@@ -35,8 +35,7 @@
                         <a href="/calendar/edit-{{ game.id }}" type="button"  style="font-family: 'DejaVu Sans'"; class="btn btn-success m-1 boutedit">
                             <i class="fas fa-wrench"></i>Editer le Match</a>
 
-                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel" ;
-                           onclick='confirmationDelete($(this));return false;' href="";>
+                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel">
                             <i class="far fa-trash-alt"></i> Supprimer</a>
 
                     {% endif %}
@@ -84,12 +83,20 @@
     {% endfor %}
 
 
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+
 <script>
-    function confirmationDelete(anchor)
+    $('.boutdel').on('click', confirmationDelete);
+
+    function confirmationDelete(evt)
     {
+        evt.preventDefault();
         let conf = confirm('Voulez-vous vraiment supprimer ce match ?');
         if(conf)
-            window.location=anchor.attr("href");
+            window.location=evt.currentTarget.attr("href");
     }
 </script>
 
