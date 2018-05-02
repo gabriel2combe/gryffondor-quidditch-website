@@ -16,7 +16,6 @@ namespace Model;
 class Player
 {
     private $id;
-
     private $lastName;
     private $firstName;
     private $size;
@@ -38,7 +37,7 @@ class Player
     /**
      * @param int $id
      *
-     * @return Item
+     * @return Player
      */
     public function setId(int $id): Player
     {

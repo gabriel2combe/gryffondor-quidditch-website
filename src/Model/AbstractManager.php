@@ -63,7 +63,7 @@ abstract class AbstractManager
     }
 
     /**
-     * DELETE on row in dataase by ID
+     * DELETE on row in database by ID
      *
      * @param int $id
      */
@@ -73,6 +73,11 @@ abstract class AbstractManager
         return $this->pdoConnection->exec($delete);
     }
 
+    /**
+     * DELETE on row in database by ID
+     *
+     * @param array $data
+     */
     public function insert(array $data)
     {
         foreach ($data as $key => $value){

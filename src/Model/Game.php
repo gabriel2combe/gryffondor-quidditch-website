@@ -110,7 +110,7 @@ class Game
     public function getScore1(): string
     {
             $score = $this->score1;
-            if($score=="") $score = "-";
+            if($score==0) $score = "-";
             return $score;
     }
 
@@ -169,7 +169,7 @@ class Game
     public function getScore2() : string
     {
         $score = $this->score2;
-        if($score=="") $score = "-";
+        if($score==0) $score = "-";
         return $score;
     }
 
