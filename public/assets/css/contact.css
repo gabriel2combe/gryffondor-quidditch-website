@@ -167,6 +167,11 @@ form .submit_button, .btn-custom{
     margin: 40px 10px;
 }
 
+.btn-admin{
+    color: white;
+    font-family: "DejaVu Sans";
+}
+
 
 /* map */
 #Contact__map {
