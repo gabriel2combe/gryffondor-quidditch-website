@@ -6,6 +6,8 @@
 	background-color: #EEEEEE;
 }
 
+
+
 .footer_text_wrapper{
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -28,4 +30,11 @@
 
 .flex_container > img{
 	padding: 5px 8px;
+}
+.footer_partenaires{
+	text-align: center;
+}
+.footer_partenaires img{
+	max-width: 29%;
+	margin : 1.5%;
 }

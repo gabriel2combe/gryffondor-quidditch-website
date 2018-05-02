@@ -16,12 +16,12 @@ namespace Model;
 class Player
 {
     private $id;
-
     private $lastName;
     private $firstName;
     private $size;
     private $birthDate;
     private $picture;
+    private $idBroomstick;
     private $broomstickModel;
     private $broomstickSpeed;
 
@@ -37,7 +37,7 @@ class Player
     /**
      * @param int $id
      *
-     * @return Item
+     * @return Player
      */
     public function setId(int $id): Player
     {
@@ -109,6 +109,26 @@ class Player
     /**
      * @return string
      */
+    public function getBirthDate(): string
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * @param int $birthDate
+     *
+     * @return Player
+     */
+    public function setBirthDate(int $birthDate): Player
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getPicture(): string
     {
         return $this->picture;
@@ -147,9 +167,29 @@ class Player
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getBroomstickSpeed(): string
+    public function getIdBroomstick(): int
+    {
+        return $this->idBroomstick;
+    }
+
+    /**
+     * @param int $idBroomstick
+     *
+     * @return Player
+     */
+    public function setIdBroomstick(int $idBroomstick): Player
+    {
+        $this->idBroomstick = $idBroomstick;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBroomstickSpeed(): int
     {
         return $this->broomstickSpeed;
     }
@@ -159,7 +199,7 @@ class Player
      *
      * @return Player
      */
-    public function setBroomstickSpeed(string $broomstickSpeed): Player
+    public function setBroomstickSpeed(int $broomstickSpeed): Player
     {
         $this->broomstickSpeed = $broomstickSpeed;
 

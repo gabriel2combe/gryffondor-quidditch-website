@@ -63,33 +63,50 @@ abstract class AbstractManager
     }
 
     /**
-     * DELETE on row in dataase by ID
+     * DELETE on row in database by ID
      *
      * @param int $id
      */
     public function delete(int $id)
     {
-        //TODO : Implements SQL DELETE request
+        $delete = "DELETE FROM `game` WHERE `game`.`id` = $id";
+        return $this->pdoConnection->exec($delete);
     }
 
-
     /**
-     * INSERT one row in dataase
+     * DELETE on row in database by ID
      *
-     * @param Array $data
+     * @param array $data
      */
     public function insert(array $data)
     {
-        //TODO : Implements SQL INSERT request
+        foreach ($data as $key => $value){
+            if (!empty($value)) {
+                $data[$key] = '\'' . $value . '\'';
+            }else{
+                $data[$key] = 'NULL';
+            }
+        }
+        $sqlFields = implode(', ', array_keys($data));
+        $sqlValues = implode(', ', $data);
+        // prepared request
+        echo "INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)";
+        $statement = $this->pdoConnection->prepare("INSERT INTO $this->table ($sqlFields) VALUES ($sqlValues)");
+        $statement->execute();
     }
-
-
     /**
      * @param int   $id   Id of the row to update
      * @param array $data $data to update
      */
     public function update(int $id, array $data)
     {
-        //TODO : Implements SQL UPDATE request
+        foreach ($data as $key => $value) {
+            // prepared request
+            $statement = $this->pdoConnection->prepare("UPDATE $this->table 
+                                                                    SET `$key` = '$value' 
+                                                                    WHERE `id` = $id");
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+            $statement->execute();
+        }
     }
 }

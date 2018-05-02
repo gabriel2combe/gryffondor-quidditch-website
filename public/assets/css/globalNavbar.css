@@ -10,19 +10,16 @@ This CSS is applied to the whole site Navbar (layout.html.twig)
 svg
 {
 	height: 55px;
+	fill: #cd900e;
 }
 
 #logo
 {
 	position: absolute;
 	top: 1px;
+
 }
 
-#social
-{
-	color: white;
-	font-size: 1.95rem;
-}
 
 .ul-home
 {
@@ -34,13 +31,14 @@ svg
 {
 	font-family: 'Poiret One', cursive;
 	font-size: 1.4rem;
-	color: black;
+	color: /*#cd900e;*/ white;
+
 
 }
 
 #navbar
 {
-	background-color: #EEE!important;
+	background-color: #480405!important;
 }
 
 .navbar-light .navbar-nav .nav-link
@@ -56,20 +54,22 @@ svg
 
 @media screen and (max-width: 1024px) 
 {
-  	.ul-home
-  	{
-	  	margin: auto;
-	  	width: 100%;
-  	}
 
-	  .ul-home > li
+}
+
+@media screen and (max-width: 767px)
+{
+
+	.ul-home
+	{
+		margin: auto;
+		width: 100%;
+	}
+
+	.ul-home > li
 	{
 		margin:auto;
 	}
-}
-
-@media screen and (max-width: 575px)
-{
 	#logo
 	{
 		width: 8vw;
@@ -77,16 +77,23 @@ svg
 
 	#btn-burger
 	{
-		margin: auto;
+		margin-left: auto;
+		border-color:#cd900e ;
 	}
 
 	#navbarNav
 	{
-		background-color: #EEE;
+		background-color: #480405;
 	}
 
 	#navbarNav a
 	{
-		color: black/*#833E2F*/;
+		color: white;
 	}
+
+	.fa-bars
+	{
+		color: #cd900e;
+	}
+
 }

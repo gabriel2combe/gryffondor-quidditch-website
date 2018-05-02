@@ -17,8 +17,10 @@ class Game
 {
     private $id;
     private $dateTimeGame;
+    private $idTeam1;
     private $nameTeam1;
     private $score1;
+    private $idTeam2;
     private $nameTeam2;
     private $score2;
     private $logoTeam1;
@@ -51,17 +53,36 @@ class Game
      */
     public function getDateTimeGame(): string
     {
-        return $this->dateTimeGame;
+        return str_replace(" ", "T",date("Y-m-d H:i",strtotime($this->dateTimeGame)));
     }
 
     /**
      * @return Game
      */
-    public function setDateTimeGame(): Game
+    public function setDateTimeGame($dateTimeGame): Game
     {
-        $this->dateTimeGame;
+        $this->dateTimeGame = $dateTimeGame;
         return $this;
 
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdTeam1(): int
+    {
+        return $this->idTeam1;
+    }
+
+    /**
+     * @param string $idTeam1
+     *
+     * @return Game
+     */
+    public function setIdTeam1($idTeam1): Game
+    {
+        $this->idTeam1 = $idTeam1;
+        return $this;
     }
 
     /**
@@ -77,9 +98,9 @@ class Game
      *
      * @return Game
      */
-    public function setNameTeam1($nameTeam): Game
+    public function setNameTeam1($nameTeam1): Game
     {
-        $this->nameTeam1 = $nameTeam;
+        $this->nameTeam1 = $nameTeam1;
         return $this;
     }
 
@@ -89,7 +110,7 @@ class Game
     public function getScore1(): string
     {
             $score = $this->score1;
-            if($score=="") $score = "-";
+            if($score==0) $score = "-";
             return $score;
     }
 
@@ -101,6 +122,25 @@ class Game
     public function setScore1($score): Game
     {
         $this->score1 = $score;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdTeam2(): int
+    {
+        return $this->idTeam2;
+    }
+
+    /**
+     * @param string $idTeam2
+     *
+     * @return Game
+     */
+    public function setIdTeam2($idTeam2): Game
+    {
+        $this->idTeam2 = $idTeam2;
         return $this;
     }
 
@@ -117,9 +157,9 @@ class Game
      *
      * @return Game
      */
-    public function setNameTeam2($nameTeam): Game
+    public function setNameTeam2($nameTeam2): Game
     {
-        $this->nameTeam2 = $nameTeam;
+        $this->nameTeam2 = $nameTeam2;
         return $this;
     }
 
@@ -129,7 +169,7 @@ class Game
     public function getScore2() : string
     {
         $score = $this->score2;
-        if($score=="") $score = "-";
+        if($score==0) $score = "-";
         return $score;
     }
 

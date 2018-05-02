@@ -1,0 +1,90 @@
+{% extends 'Calendar/calendar.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block navbar %}{% endblock %}
+
+
+
+  {% block content %}
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 60px;">
+        <div class="card col-md-6 offset-md-3">
+            <div class="card-header">
+                <h1 class="mb-0 text-dark">{% block formTitle %} {{ game.nameTeam1 }} / {{ game.nameTeam2 }}{% endblock %} </h1>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <input hidden name="id" value="{{ game.id }}">
+                    <div class="form-group">
+                        <label for="nameTeam1">Equipe 1</label>
+                        <select name="idTeam1" id="nameTeam1">
+                            {% for team in teams %}
+                                <option
+                                        value="{{ team.id }}"
+                                        {% if game.nameTeam1 == team.name %}selected="selected"{% endif %}
+                                >{{ team.name }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nameTeam2">Equipe 2</label>
+                        <select name="idTeam2" id="nameTeam2">
+
+                            {% for team in teams %}
+                                <option value="{{ team.id }}"
+                                        {% if game.nameTeam2 == team.name %}selected="selected"{% endif %}
+                                >{{ team.name }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Score Equipe 1</label>
+                        <input
+                                type="number"
+                                class="form-control"
+                                name="score1"
+                                id="score1"
+                                value="{{ game.score1 }}"
+                        >
+                        <div class="form-group">
+                            <label for="">Score Equipe 2</label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    name="score2"
+                                    id="score1"
+                                    value="{{ game.score2 }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateGame">Modifier la date et l'heure de la rencontre :</label>
+                            <input type="datetime-local"
+                                   id="dateTimeGame"
+                                   name="dateTimeGame"
+                                   value="{{ game.dateTimeGame }}"
+                                   required
+                                   placeholder="aaaa-mm-jj hh:mm">
+                        </div>
+
+
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                    <a href="/calendar-2017-2018" type="button" class="btn btn-primary">Retour au site</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/js/player.js"></script>
+<script src="/assets/js/watchForHover.js"></script>
+{% endblock %}

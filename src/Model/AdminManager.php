@@ -12,7 +12,7 @@ namespace Model;
 /**
  *
  */
-class AdminLoginManager extends AbstractManager
+class AdminManager extends AbstractManager
 {
     const TABLE = 'user';
 
@@ -34,7 +34,7 @@ class AdminLoginManager extends AbstractManager
             SELECT *
             FROM $this->table
             WHERE login=:login");
-        $statement->setFetchMode(\PDO::FETCH_CLASS, AdminLogin::class);
+        $statement->setFetchMode(\PDO::FETCH_CLASS, Admin::class);
         $statement->bindValue('login', $login, \PDO::PARAM_STR);
         $statement->execute();
         return $statement->fetch();

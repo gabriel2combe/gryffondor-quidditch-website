@@ -6,53 +6,112 @@
 {% endblock %}
 
 {% block content %}
-    {{ parent() }}
 
 
-      <div class="row title_calendar">
-          <h1>Calendrier</h1>
+
+    <img src="assets/images/teams/coupe_quidditch.jpg" class="img-fluid img_coupe" alt="Responsive image">
+      <div class="row title_calendar" id="title_calendar">
+          <p>Calendrier</p>
+
+
+
       </div>
+<div class="seasonbox">
+    <h2>Saison :</h2>
+    <select name="season" onchange="location = this.value;" class="seasonselect" >
+        {% for season in seasons %}
+            <option value="/calendar-{{ season.season }}" {% if season.season == currentSeason %}selected{% endif %}>{{ season.season }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+{% if admin %}
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <a href="calendar/add" type="button" class="btn btn-primary boutajout"><i class="fas fa-plus-circle"></i>
+
+                Ajouter un Match</a>
+        </div>
+    </div>
+{% endif %}
 
     {% for game in games %}
 
-    <div class="container-fluid">
+
+    <div class="container">
         <div class="row ligne">
+            <div class="match_banner">
+                <div class=" d-flex date_box justify-content-center">
+                    {% if admin %}
+
+                        <a href="/calendar/edit-{{ game.id }}" type="button" class="btn btn-success m-1 boutedit">
+                            <i class="fas fa-wrench"></i>Editer le Match</a>
+
+                        <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel">
+                            <i class="far fa-trash-alt"></i> Supprimer</a>
+
+                    {% endif %}
+
+                    <p class="dateMatch text-center">
+                        {{ game.getDate }}<br>
+                        {{ game.getTime }}<br>
+                    </p>
+
+                </div>
+
+                <div class="logo_score_boxes">
+
+               <div class="logo_score_box1">
+
+                    <div class="logo">
+                        <p class="nameTeam img-fluid">{{ game.nameTeam1 }}</p>
+                        <img class="card-img-top" src="{{ game.logoTeam1 }}" alt="Logo équipe">
+                    </div>
 
 
-        <div class="logo">
-            <p class="nameTeam">{{ game.nameTeam1 }}</p>
-            <img class="card-img-top" src="{{ game.logoTeam1 }}" alt="Logo équipe">
+                    <div class="score">
+                        <p>{{ game.score1 }}</p>
+                    </div>
+               </div>
+
+            <div class="logo_score_box2">
+                    <div class="score score2">
+                        <p>{{ game.score2 }}</p>
+                    </div>
+
+
+                        <div class="logo">
+                            <p class="nameTeam">{{ game.nameTeam2 }}</p>
+                            <img class="card-img-top" src="{{ game.logoTeam2 }}" alt="Logo équipe">
+                        </div>
+
+                </div>
+                </div>
+            </div>
         </div>
-
-
-        <div class="score">
-            <p>{{ game.score1 }}</p>
-        </div>
-
-    <div class="dateMatch d-flex justify-content-center">
-        <p class="text-center">
-            {{ game.getDate }}<br>
-            {{ game.getTime }}<br>
-
-        </p>
     </div>
 
-        <div class="score">
-            <p>{{ game.score2 }}</p>
-        </div>
-
-
-            <div class="logo">
-                <p class="nameTeam">{{ game.nameTeam2 }}</p>
-                <img class="card-img-top" src="{{ game.logoTeam2 }}" alt="Logo équipe">
-            </div>
-
-
-        </div>
-        </div>
 
     {% endfor %}
 
 
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+
+<script>
+    $('.boutdel').on('click', confirmationDelete);
+
+    function confirmationDelete(evt)
+    {
+        evt.preventDefault();
+        let conf = confirm('Voulez-vous vraiment supprimer ce match ?');
+        if(conf)
+            window.location=evt.currentTarget.href;
+    }
+</script>
 
 {% endblock %}
+
+

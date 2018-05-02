@@ -8,6 +8,8 @@
 
 session_start();
 
+define('SEASON', '2017-2018');
+
 if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
     return false;    // retourne la requête telle quelle.
 }
