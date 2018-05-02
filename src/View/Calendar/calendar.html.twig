@@ -15,7 +15,7 @@
 {% if admin %}
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <a href="calendar/add" type="button" class="btn btn-primary" style="font-family: 'DejaVu Sans'";><i class="fas fa-plus-circle"></i>
+            <a href="calendar/add" type="button" class="btn btn-primary boutajout"><i class="fas fa-plus-circle"></i>
 
                 Ajouter un Match</a>
         </div>
@@ -32,7 +32,7 @@
             <div class="match_banner">
                 <div class=" d-flex date_box justify-content-center">
                     {% if admin %}
-                        <a href="/calendar/edit-{{ game.id }}" type="button"  style="font-family: 'DejaVu Sans'"; class="btn btn-success m-1 boutedit">
+                        <a href="/calendar/edit-{{ game.id }}" type="button" class="btn btn-success m-1 boutedit">
                             <i class="fas fa-wrench"></i>Editer le Match</a>
 
                         <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel">
@@ -96,7 +96,7 @@
         evt.preventDefault();
         let conf = confirm('Voulez-vous vraiment supprimer ce match ?');
         if(conf)
-            window.location=evt.currentTarget.attr("href");
+            window.location=evt.currentTarget.href;
     }
 </script>
 
