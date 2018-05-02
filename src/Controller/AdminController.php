@@ -80,6 +80,65 @@ class AdminController extends AbstractController
     }
 
     /**
+     * Change Password
+     *
+     * @return string
+     */
+    public function passwordChange()
+    {
+        if(!isset($_SESSION['admin'])){
+            header('Location: /admin');
+        }
+        $admin = (!empty($_POST['login'])) ? $_POST['login'] : $_SESSION['admin'];
+        $errorCode = "";
+        $login = (isset($_POST['login'])) ? $_POST['login'] : "";
+        $password = (isset($_POST['password'])) ? $_POST['password'] : "";
+        $newPassword1 = (isset($_POST['newPassword1'])) ? $_POST['newPassword1'] : "";
+        $newPassword2 = (isset($_POST['newPassword2'])) ? $_POST['newPassword2'] : "";
+        if(!empty($_POST)) {
+            $adminLoginManager = new AdminManager();
+            $adminLogin = $adminLoginManager->selectByName($login);
+            if ($adminLogin) {
+                $id = $adminLogin->getId();
+                if (!$adminLogin->isLocked()) {
+                    if ($adminLogin->isGoodPassword($password)) {
+                        $data = ['failedTry' => 0];
+                        $adminLoginManager->update($id, $data);
+                        if ($newPassword1 === $newPassword2) {
+                            $data = ['password' => md5($newPassword1)];
+                            $adminLoginManager->update($id, $data);
+                            return $this->twig->render('Home/home.html.twig',
+                                [
+                                    'admin' => $admin,
+                                ]
+                            );
+                        } else {
+                            //Message d'erreur
+                        }
+                    } else {
+                        $errorCode = $adminLogin->wrongPassword();
+                        $data = [
+                            'failedTry' => $adminLogin->getFailedTry(),
+                            'lockedUntil' => $adminLogin->getLockedUntil()
+                        ];
+                        $adminLoginManager->update($id, $data);
+                    }
+                } else {
+                    $errorCode = "Votre compte est actuellement verrouillé. Veuillez tenter à nouveau plus tard";
+                }
+            } else {
+                $errorCode = "Identifiant inconnu";
+            }
+        }
+        return $this->twig->render('Admin/changePassword.html.twig',
+            [
+                'admin' => $admin,
+                'errorCode' => $errorCode
+            ]
+        );
+    }
+
+    /**
      * Tries to logout
      *
      * @return string
