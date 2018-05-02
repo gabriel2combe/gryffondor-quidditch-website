@@ -10,6 +10,7 @@
 namespace Controller;
 
 use Model\ContactManager;
+use Model\MailManager;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -64,69 +65,13 @@ class ContactController extends AbstractController
      */
     public function sendMail()
     {
-        $error = "";
-        //Vérification de l'intégrité du champ email
-        if (!empty($_POST['email'])) {
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $error = '- Veuillez entrer une adresse email valide.<br>';
-            }
-        } else {
-            $error = '- Vous devez entrer une adresse email pour pouvoir être contacté par l\'équipe en retour.<br>';
-        }
-
-        //Vérification du contenu du message
-        if (empty($_POST['content'])) {
-            $error = $error . '- Veuillez taper un message à envoyer.<br>';
-        }
-
-        // S'il n'y a pas d'erreur d'intégrité, on peut envoyer le message
-        if (empty($error)) {
-            //Récupération du contenu du formulaire
-            $email = $_POST['email'];
-            $subject = $_POST['subject'];
-            $content = $_POST['content'];
-
-
-            $mail = new PHPMailer(false);               // Passing `true` enables exceptions
-            try {
-                //Server settings
-                $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = MAIL_ADDR;                          // SMTP username
-                $mail->Password = MAIL_PWD;                           // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
-
-                //Recipients
-                $mail->setFrom(MAIL_ADDR, $email);
-                $mail->addAddress(MAIL_ADDR);
-                $mail->addReplyTo($email);
-
-                //Content
-                $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'From ' . $email . ' - ' . $subject;
-                $mail->Body = $content;
-
-                //Envoyer l'email
-                $mail->send();
-                $_SESSION['sendEmail'] = 'successful';
-            } catch (Exception $e) {
-                $_SESSION['sendEmail'] = $mail->ErrorInfo;
-            } catch (\Exception $e) { //The leading slash means the Global PHP Exception class will be caught
-                $_SESSION['sendEmail'] = $e->getMessage(); //Boring error messages from anything else!
-            }
-        } else { // Sinon on retourne sur le formulaire en renvoyant les champs à préremplir.
-            if (isset($_POST['email'])) {
-                $_SESSION['emailForm']['email'] = $_POST['email'];
-            }
-            if (isset($_POST['content'])) {
-                $_SESSION['emailForm']['content'] = $_POST['content'];
-            }
-            $_SESSION['emailForm']['subject'] = $_POST['subject'];
-            $_SESSION['emailForm']['error'] = $error;
-        }
+        $sender = $_POST['email'];
+        $subject = $_POST['subject'];
+        $mailBody = $_POST['content'];
+        $mailManager = new MailManager();
+        $mailInfo = $mailManager->sendMail($sender, $subject, $mailBody);
+        $_SESSION['sendEmail']=$mailInfo['sendEmail'];
+        $_SESSION['emailForm']=$mailInfo['emailForm'];
         header('location: /contact');
     }
 
