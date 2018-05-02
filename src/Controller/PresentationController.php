@@ -32,7 +32,8 @@ class PresentationController extends AbstractController
         return $this->twig->render('Presentation/presentation.html.twig',
             [
                 'presentationInfo' => $presentationInfo,
-                'admin' => $admin
+                'admin' => $admin,
+                'thisSeason' => SEASON
             ]
         );
     }

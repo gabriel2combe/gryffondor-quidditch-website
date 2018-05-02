@@ -28,7 +28,8 @@ class HomeController extends AbstractController
 
         return $this->twig->render('Home/home.html.twig',
             [
-                'admin' => $admin
+                'admin' => $admin,
+                'thisSeason' => SEASON
             ]
         );
     }

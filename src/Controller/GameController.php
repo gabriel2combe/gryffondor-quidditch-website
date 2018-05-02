@@ -40,7 +40,8 @@ class GameController extends AbstractController
                 'games' => $games,
                 'admin' => $admin,
                 'seasons' => $seasons,
-                'currentSeason' => $season
+                'currentSeason' => $season,
+                'thisSeason' => SEASON
             ]
         );
     }
