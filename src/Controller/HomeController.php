@@ -25,11 +25,16 @@ class HomeController extends AbstractController
     public function index()
     {
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
-
+        $reset="";
+        if (isset($_SESSION['reset'])) {
+            $reset = $_SESSION['reset'];
+            unset($_SESSION['reset']);
+        }
         return $this->twig->render('Home/home.html.twig',
             [
                 'admin' => $admin,
-                'thisSeason' => SEASON
+                'thisSeason' => SEASON,
+                'reset' => $reset
             ]
         );
     }

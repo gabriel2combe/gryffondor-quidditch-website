@@ -9,6 +9,7 @@
 
 namespace Controller;
 use Model\AdminManager;
+use Model\MailManager;
 
 
 /**
@@ -26,7 +27,12 @@ class AdminController extends AbstractController
     public function index()
     {
         if(!isset($_SESSION['admin'])) {
-            return $this->twig->render('Admin/admin.html.twig');
+            $reset="";
+            if (isset($_SESSION['reset'])) {
+                $reset = $_SESSION['reset'];
+                unset($_SESSION['reset']);
+            }
+            return $this->twig->render('Admin/admin.html.twig',['reset' => $reset]);
         }else{
             header('Location: /');
         }
@@ -161,16 +167,15 @@ class AdminController extends AbstractController
                     $password = $adminLogin->generatePassword(8);
                     $data = ['password' => md5($password)];
                     $adminLoginManager->update($id, $data);
+                    $mailManager = new MailManager();
+                    $message = "Le mot de passe temporaire attribué à $login est : $password. Pensez à le modifier";
+                    $mailManager->sendMail(MAIL_ADDR, 'Mot de passe temporaire', $message);
                 }
             }
-            return $this->twig->render('Admin/admin.html.twig',
-                [
-                    'reset' => 'Veuillez consulter votre boite email.<br>
+            $_SESSION['reset'] = 'Veuillez consulter votre boite email.<br>
                                 Un mot de passe temporaire vous a été envoyé.<br>
-                                (A condition d\'avoir renseigné les bonnes informations)',
-                    'admin' => $admin
-                ]
-            );
+                                (A condition d\'avoir renseigné les bonnes informations)';
+            header('Location: /admin');
         }
         return $this->twig->render('Admin/resetPassword.html.twig',
             [
