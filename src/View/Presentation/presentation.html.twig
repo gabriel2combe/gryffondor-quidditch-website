@@ -24,7 +24,8 @@
         <div class="row bloc {% if admin %}green-borders-top{% endif %}">
             <div class="col-12 col-md-6 text-center align-middle">
                 {% if admin %}
-                    <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success btn-modify">Modifier</a>
+                    <a href="/presentation/edit-{{ info.id }}" type="button" class="btn btn-success btn-modify">
+                        <i class="fas fa-wrench"></i> Modifier</a>
                 {% endif %}
                 <h2>{{ info.title }}</h2>
                 <img class="icone" src="{{ info.logo }}">
@@ -37,10 +38,10 @@
             <div class="col-xs-12 col-md-4 text-center">
                 <img src="{{ info.picture1 }}" alt="{{ info.title }} - Illustration 1" class="img-fluid miniature">
             </div>
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-4 text-center">
                 <img  src="{{ info.picture2 }}" alt="{{ info.title }} - Illustration 2" class="img-fluid miniature">
             </div>
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-4 text-center">
                 <img  src="{{ info.picture3 }}" alt="{{ info.title }} - Illustration 3" class="img-fluid miniature">
             </div>
         </div>

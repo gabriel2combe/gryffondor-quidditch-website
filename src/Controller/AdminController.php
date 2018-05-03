@@ -9,6 +9,7 @@
 
 namespace Controller;
 use Model\AdminManager;
+use Model\MailManager;
 
 
 /**
@@ -26,7 +27,12 @@ class AdminController extends AbstractController
     public function index()
     {
         if(!isset($_SESSION['admin'])) {
-            return $this->twig->render('Admin/admin.html.twig');
+            $reset="";
+            if (isset($_SESSION['reset'])) {
+                $reset = $_SESSION['reset'];
+                unset($_SESSION['reset']);
+            }
+            return $this->twig->render('Admin/admin.html.twig',['reset' => $reset]);
         }else{
             header('Location: /');
         }
@@ -107,12 +113,8 @@ class AdminController extends AbstractController
                         if ($newPassword1 === $newPassword2) {
                             $data = ['password' => md5($newPassword1)];
                             $adminLoginManager->update($id, $data);
-                            return $this->twig->render('Home/home.html.twig',
-                                [
-                                    'admin' => $admin,
-                                    'alert' => 'Mot de passe modifié avec succès'
-                                ]
-                            );
+                            $_SESSION['alert'] = 'Mot de passe modifié avec succès';
+                            header('Location: /');
                         } else {
                             $errorCode = "Le mot de passe de confirmation doit être identique au nouveau mot de passe";
                         }
@@ -140,6 +142,46 @@ class AdminController extends AbstractController
     }
 
     /**
+     * Reset Password
+     *
+     * @return string
+     */
+    public function passwordReset()
+    {
+        $admin = (!empty($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        $redirection = (!empty($admin)) ?
+            ['link' => '/', 'title' => 'Home'] :
+            ['link' => '/admin', 'title' => 'Retour'];
+        if(!empty($_POST)) {
+            $login = $_POST['login'];
+            $email = $_POST['email'];
+            $adminLoginManager = new AdminManager();
+            $adminLogin = $adminLoginManager->selectByName($login);
+            if ($adminLogin) {
+                $id = $adminLogin->getId();
+                if ($adminLogin->isGoodEmail($email)) {
+                    $password = $adminLogin->generatePassword(8);
+                    $data = ['password' => md5($password)];
+                    $adminLoginManager->update($id, $data);
+                    $mailManager = new MailManager();
+                    $message = "Le mot de passe temporaire attribué à $login est : $password. Pensez à le modifier";
+                    $mailManager->sendMail(MAIL_ADDR, 'Mot de passe temporaire', $message);
+                }
+            }
+            $_SESSION['reset'] = 'Veuillez consulter votre boite email.<br>
+                                Un mot de passe temporaire vous a été envoyé.<br>
+                                (A condition d\'avoir renseigné les bonnes informations)';
+            header('Location: /admin');
+        }
+        return $this->twig->render('Admin/resetPassword.html.twig',
+            [
+                'admin' => $admin,
+                'redirection' => $redirection
+            ]
+        );
+    }
+
+    /**
      * Tries to logout
      *
      * @return string
@@ -149,5 +191,9 @@ class AdminController extends AbstractController
         unset($_SESSION['admin']);
         header('Location: /');
     }
+
+
+
+
 
 }

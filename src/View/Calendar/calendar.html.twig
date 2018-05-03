@@ -17,7 +17,7 @@
 
       </div>
 <div class="seasonbox">
-    <h2>Saison :</h2>
+    <h2 class="mr-2">Saison : </h2>
     <select name="season" onchange="location = this.value;" class="seasonselect" >
         {% for season in seasons %}
             <option value="/calendar-{{ season.season }}" {% if season.season == currentSeason %}selected{% endif %}>{{ season.season }}</option>
@@ -45,7 +45,7 @@
                     {% if admin %}
 
                         <a href="/calendar/edit-{{ game.id }}" type="button" class="btn btn-success m-1 boutedit">
-                            <i class="fas fa-wrench"></i>Editer le Match</a>
+                            <i class="fas fa-wrench"></i> Modifier</a>
 
                         <a href="/calendar/delete-{{ game.id }}" type="button" class="btn btn-danger boutdel">
                             <i class="far fa-trash-alt"></i> Supprimer</a>
