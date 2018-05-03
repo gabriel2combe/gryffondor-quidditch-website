@@ -26,15 +26,21 @@ class HomeController extends AbstractController
     {
         $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : "";
         $reset="";
+        $alert="";
         if (isset($_SESSION['reset'])) {
             $reset = $_SESSION['reset'];
             unset($_SESSION['reset']);
+        }
+        if (isset($_SESSION['alert'])) {
+        $reset = $_SESSION['alert'];
+        unset($_SESSION['alert']);
         }
         return $this->twig->render('Home/home.html.twig',
             [
                 'admin' => $admin,
                 'thisSeason' => SEASON,
-                'reset' => $reset
+                'reset' => $reset,
+                'alert' => $alert
             ]
         );
     }

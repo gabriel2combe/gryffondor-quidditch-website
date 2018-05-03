@@ -113,12 +113,8 @@ class AdminController extends AbstractController
                         if ($newPassword1 === $newPassword2) {
                             $data = ['password' => md5($newPassword1)];
                             $adminLoginManager->update($id, $data);
-                            return $this->twig->render('Home/home.html.twig',
-                                [
-                                    'admin' => $admin,
-                                    'alert' => 'Mot de passe modifié avec succès'
-                                ]
-                            );
+                            $_SESSION['alert'] = 'Mot de passe modifié avec succès';
+                            header('Location: /');
                         } else {
                             $errorCode = "Le mot de passe de confirmation doit être identique au nouveau mot de passe";
                         }
