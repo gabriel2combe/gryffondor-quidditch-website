@@ -33,11 +33,11 @@
 
                 <ul id="Contact__informations" class="col-xs-12 col-md-4 {% if admin %}border-admin{% endif %}">
                     {% if admin %}
-                        <a href="/contact/edit" type="button" class="btn btn-success btn-admin">Modifier</a>
+                        <a href="/contact/edit" type="button" class="btn btn-success btn-admin btn-custom">
+                            <i class="fas fa-wrench"></i> Modifier</a>
                     {% endif %}
                     <li>
-                        <div>
-
+                        <div class="icons">
                             <i class="fas fa-compass fa-2x"></i>
                             <p>{{ contactInfo.0.title|raw }} :</p>
                             <p>{{ contactInfo.0.content|nl2br }}</p>
@@ -45,7 +45,7 @@
                     </li>
 
                     <li>
-                        <div>
+                        <div class="icons">
                             <i class="fab fa-earlybirds fa-2x"></i>
                             <p>{{ contactInfo.1.title|nl2br }} :</p>
                             <p>{{ contactInfo.1.content|nl2br }}</p>
@@ -53,7 +53,7 @@
                     </li>
 
                     <li>
-                        <div>
+                        <div class="icons">
                             <i class="fa fa-paper-plane fa-2x"></i>
                             <p>{{ contactInfo.2.title|nl2br }} :</p>
                             <p>{{ contactInfo.2.content|nl2br }}</p>

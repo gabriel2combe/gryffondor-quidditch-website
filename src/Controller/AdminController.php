@@ -140,6 +140,47 @@ class AdminController extends AbstractController
     }
 
     /**
+     * Reset Password
+     *
+     * @return string
+     */
+    public function passwordReset()
+    {
+        $admin = (!empty($_SESSION['admin'])) ? $_SESSION['admin'] : "";
+        $redirection = (!empty($admin)) ?
+            ['link' => '/', 'title' => 'Home'] :
+            ['link' => '/admin', 'title' => 'Retour'];
+        if(!empty($_POST)) {
+            $login = $_POST['login'];
+            $email = $_POST['email'];
+            $adminLoginManager = new AdminManager();
+            $adminLogin = $adminLoginManager->selectByName($login);
+            if ($adminLogin) {
+                $id = $adminLogin->getId();
+                if ($adminLogin->isGoodEmail($email)) {
+                    $password = $adminLogin->generatePassword(8);
+                    $data = ['password' => md5($password)];
+                    $adminLoginManager->update($id, $data);
+                }
+            }
+            return $this->twig->render('Admin/admin.html.twig',
+                [
+                    'reset' => 'Veuillez consulter votre boite email.<br>
+                                Un mot de passe temporaire vous a été envoyé.<br>
+                                (A condition d\'avoir renseigné les bonnes informations)',
+                    'admin' => $admin
+                ]
+            );
+        }
+        return $this->twig->render('Admin/resetPassword.html.twig',
+            [
+                'admin' => $admin,
+                'redirection' => $redirection
+            ]
+        );
+    }
+
+    /**
      * Tries to logout
      *
      * @return string
@@ -149,5 +190,9 @@ class AdminController extends AbstractController
         unset($_SESSION['admin']);
         header('Location: /');
     }
+
+
+
+
 
 }

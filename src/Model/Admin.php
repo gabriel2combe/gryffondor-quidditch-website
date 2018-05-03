@@ -20,6 +20,7 @@ class Admin
     private $password;
     private $failedTry;
     private $lockedUntil;
+    private $email;
 
 
     /**
@@ -123,6 +124,26 @@ class Admin
     }
 
     /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     *
+     * @return Admin
+     */
+    public function setEmail(string $email): Admin
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
      * Increases the count of wrong passwords and locks the account at the third failed attempt
      *
      * @return string
@@ -153,6 +174,18 @@ class Admin
     }
 
     /**
+     * Tests if the email entered is correct
+     *
+     * @param string $email
+     *
+     * @return bool
+     */
+    public function isGoodEmail(string $email): bool
+    {
+        return ($email == $this->email);
+    }
+
+    /**
      * Tests if the password entered is correct
      *
      * @param string $password
@@ -163,5 +196,24 @@ class Admin
     {
         $this->setFailedTry(0);
         return (md5($password) == $this->password);
+    }
+
+    /**
+     * Generate a new temporary password
+     *
+     * @param int $size
+     *
+     * @return string
+     */
+    function generatePassword($size)
+    {
+        // Initialisation des caractères utilisables
+        $characters = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+        $password = "";
+        for($i=0;$i<$size;$i++)
+        {
+            $password .= (rand(0,1)) ? strtoupper($characters[array_rand($characters)]) : $characters[array_rand($characters)];
+        }
+        return $password;
     }
 }

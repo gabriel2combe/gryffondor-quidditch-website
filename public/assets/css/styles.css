@@ -28,3 +28,13 @@ h1{
     margin: 5px;
     font-family: "DejaVu Sans";
 }
+
+.btn-custom{
+    border-radius: 0;
+    margin-left: 5px;
+    font-family: "DejaVu Sans";
+}
+
+.btn-custom svg path {
+    fill: white;
+}
