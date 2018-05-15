@@ -33,7 +33,6 @@ $routes = [
     'Contact' => [ // Controller
         ['index', '/contact', 'GET'], // action, url, method
         ['sendMail', '/contact', 'POST'], // action, url, method
-
         ['successful', '/successful', 'GET'], // action, url, method
         ['edit', '/contact/edit', ['GET', 'POST']], // action, url, method
     ],
@@ -41,6 +40,8 @@ $routes = [
         ['index', '/admin', 'GET'], // action, url, method
         ['login', '/admin', 'POST'], // action, url, method
         ['logout', '/logout', 'GET'], // action, url, method
+        ['passwordChange', '/password-change', ['GET', 'POST']], // action, url, method
+        ['passwordReset', '/password-reset', ['GET', 'POST']], // action, url, method
     ],
 
 ];

@@ -18,3 +18,23 @@ h1{
     font-family: "DejaVu Sans";
     z-index: 100;
 }
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-body a {
+    margin: 5px;
+    font-family: "DejaVu Sans";
+}
+
+.btn-custom{
+    border-radius: 0;
+    margin-left: 5px;
+    font-family: "DejaVu Sans";
+}
+
+.btn-custom svg path {
+    fill: white;
+}

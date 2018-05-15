@@ -5,6 +5,18 @@
  <link rel="stylesheet" type="text/css" href="../assets/css/home.css">
 {% endblock %}
 {% block navbar %}{% include 'Navbar/homeNavbar.html.twig'%}{% endblock %}
+{% block alert %}
+    {% if alert %}
+        <div class="alert alert-success" role="alert">
+            {{ alert }}
+        </div>
+    {% endif %}
+    {% if reset %}
+        <div class="alert alert-info" role="alert">
+            {{ reset|raw }}
+        </div>
+    {% endif %}
+{% endblock %}
 {% block footer %}{% endblock %}
 {% block content %}
     <div class="container-fluid">
